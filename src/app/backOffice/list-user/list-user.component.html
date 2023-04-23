@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<app-nav-bar-back></app-nav-bar-back>
+<!-- ======= Sidebar ======= -->
+<app-side-bar-back></app-side-bar-back>
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>User Data Tables</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Tables</li>
+        <li class="breadcrumb-item active">Data</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div  class="card-body">
+            <h5 class="card-title"> User Datatables</h5>
+            <p>this is user dataTable table</p>
+
+            <!-- Table with stripped rows -->
+            <table *ngFor="let user of listUsers" class="table datatable">
+              <thead>
+              <tr>
+                <th scope="col">firstname</th>
+                <th scope="col">lastname</th>
+                <th scope="col">email</th>
+                <th scope="col">sexe</th>
+                <th scope="col">nationality</th>
+                <th scope="col">typeCours</th>
+                <th scope="col">password</th>
+                <th scope="col">cin</th>
+                <th scope="col">locked</th>
+                <th scope="col">enabled</th>
+                <th scope="col">niveau</th>
+                <th scope="col">numTel</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.sexe}}</td>
+                <td>{{user.nationality}}</td>
+                <td>{{user.typeCours}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.cin}}</td>
+                <td>{{user.locked}}</td>
+                <td>{{user.enabled}}</td>
+                <td>{{user.niveauSuivant}}</td>
+                <td>{{user.numTel}}</td>
+              </tr>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer-back></app-footer-back>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+</body>
+
+</html>

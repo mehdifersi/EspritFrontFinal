@@ -68,16 +68,17 @@ export class LoginComponent implements OnInit {
       (data:any)=>{
         console.log("succes");
         console.log(data);
-        localStorage.setItem('User : ',JSON.stringify(this.loginData))
+
         this.login.loginUser(data.token);
-        this.login.getCurrentUser(this.loginData.email).subscribe(
+
+        this.login.getCurrentUser(data.token).subscribe(
           (user:any)=>{
-            // this.login.setUser(user);
-            console.log(user);
+            this.login.setUser(user);
+            // console.log(user);
 
-            /*if(this.login.getUserRole()=='STUDENT'){
+            if(this.login.getUserRole()=='STUDENT'){
 
-              Swal.fire('Bienvenue',this.login.getUser().email, 'success').then((result)=>{
+              Swal.fire('Bienvenue',this.login.getUser().username, 'success').then((result)=>{
                 if(result.isConfirmed){
 
                   this.router.navigate(['/']);
@@ -89,7 +90,7 @@ export class LoginComponent implements OnInit {
 
             }else{
               this.login.logout();
-            }*/
+            }
 
 
 

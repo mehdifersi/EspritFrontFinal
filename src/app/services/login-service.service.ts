@@ -82,12 +82,12 @@ export class LoginServiceService {
   }
 
 
-  // public setUser(user:any){
-  //
-  //   localStorage.setItem('User', JSON.stringify(user));
-  //
-  //
-  // }
+  public setUser(user:any){
+
+    localStorage.setItem('User', JSON.stringify(user));
+
+
+  }
 
 
  public getUserRole(){
@@ -99,9 +99,9 @@ export class LoginServiceService {
   }
 
 
-  public getCurrentUser(email:any){
+  public getCurrentUser(token:any){
 
-    return this.http.get(`${baseUrl}/api/v1/auth/current-user`,email);
+    return this.http.get(`${baseUrl}/api/v1/auth/current-user`,token);
 
   }
 

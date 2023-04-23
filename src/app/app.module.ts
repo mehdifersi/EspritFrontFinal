@@ -17,6 +17,7 @@ import { SideBarBackComponent } from './backOffice/side-bar-back/side-bar-back.c
 import { HomeBackComponent } from './backOffice/home-back/home-back.component';
 import { ProfileComponent } from './backOffice/profile/profile.component';
 import { NotFoundComponent } from './backOffice/not-found/not-found.component';
+import { ListUserComponent } from './backOffice/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NotFoundComponent } from './backOffice/not-found/not-found.component';
     SideBarBackComponent,
     HomeBackComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ListUserComponent
   ],
     imports: [
         BrowserModule,
