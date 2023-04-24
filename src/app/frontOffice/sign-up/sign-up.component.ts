@@ -32,13 +32,7 @@ export class SignUpComponent implements OnInit{
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
   }
-  ngOnDestroy(){
-    var body = document.getElementsByTagName('body')[0];
-    body.classList.remove('login-page');
 
-    var navbar = document.getElementsByTagName('nav')[0];
-    navbar.classList.remove('navbar-transparent');
-  }
 
   formSubmit(){
     if(this.SignUpData.email.trim() == '' || this.SignUpData.email == null){
