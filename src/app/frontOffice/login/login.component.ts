@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
 
             if(this.login.getUserRole()=='STUDENT'){
 
-              Swal.fire('Bienvenue',this.login.getUser().username, 'success').then((result)=>{
+              Swal.fire('Bienvenue',this.login.getUser()?.firstname, 'success').then((result)=>{
                 if(result.isConfirmed){
 
                   this.router.navigate(['/']);

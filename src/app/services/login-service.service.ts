@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import baseUrl from "./helpers.service";
+import {User} from "../core/Model/User";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class LoginServiceService {
 
   constructor(private http:HttpClient) { }
 
-
+  user!:User
   public generateToken(loginData:any){
 
     return this.http.post(`${baseUrl}/api/v1/auth/generate-token`, loginData);
@@ -67,10 +68,10 @@ export class LoginServiceService {
 
   public getUser(){
 
-    let userStr = localStorage.getItem('User');
+     let userStr= localStorage.getItem('User');
     if(userStr!=null){
-
-      return JSON.parse(userStr);
+      this.user=JSON.parse(userStr)
+      return this.user;
 
     }else{
 
@@ -92,8 +93,7 @@ export class LoginServiceService {
 
  public getUserRole(){
 
-    let user = this.getUser();
-    return user.getRole();
+ return this.user.role
 
 
   }
