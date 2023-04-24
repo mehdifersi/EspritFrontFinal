@@ -68,9 +68,8 @@ export class LoginComponent implements OnInit {
       (data:any)=>{
         console.log("succes");
         console.log(data);
-
         this.login.loginUser(data.token);
-
+        this.router.navigateByUrl('/homeBack')
         this.login.getCurrentUser(data.token).subscribe(
           (user:any)=>{
             this.login.setUser(user);
