@@ -99,9 +99,9 @@ export class LoginServiceService {
   }
 
 
-  public getCurrentUser(token:any){
+  public getCurrentUser(email:any){
 
-    return this.http.get(`${baseUrl}/api/v1/auth/current-user`,token);
+    return this.http.get(`${baseUrl}/api/v1/auth/getUserByEmail/`+email);
 
   }
 
