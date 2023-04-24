@@ -4,6 +4,7 @@ import {TypeCours} from "./TypeCours";
 import {Role} from "./Role";
 import {NiveauActuel} from "./NiveauActuel";
 import {NiveauSuivant} from "./NiveauSuivant";
+import {Interview} from "./Interview";
 
 export class User {
   id!: number;
@@ -24,4 +25,9 @@ export class User {
   niveauActuel!: NiveauActuel;
   niveauSuivant!: NiveauSuivant;
   numTel!: string;
+  interviewStudent!:Interview;
+  evaluatorInterviews !: Interview[];
+
+
+
 }

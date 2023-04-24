@@ -13,6 +13,10 @@ export class InterviewService {
     return this.http.get<Interview[]>(`${baseUrl}/interview/getAll`);
   }
 
+  getAllInterviewsWithEvaluatorAndStudentName() {
+    return this.http.get<Interview[]>(`${baseUrl}/interview/getAllInterviewsWithEvaluatorAndStudentName`);
+  }
+
   postInterview(interview: Interview) {
     return this.http.post<Interview>(`${baseUrl}/interview/add`, interview);
   }
@@ -22,7 +26,7 @@ export class InterviewService {
   }
 
   deleteInterview(id: number) {
-    return this.http.delete(`${baseUrl}/interview/delete/${id}`);
+    return this.http.delete(`${baseUrl}/interview/deleteInterviewById/${id}`);
   }
 
   getInterview(id: number) {

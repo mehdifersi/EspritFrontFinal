@@ -7,10 +7,11 @@ import {NavBarComponent} from "./frontOffice/nav-bar/nav-bar.component";
 import {HomeBackComponent} from "./backOffice/home-back/home-back.component";
 import {NavBarBackComponent} from "./backOffice/nav-bar-back/nav-bar-back.component";
 import {SideBarBackComponent} from "./backOffice/side-bar-back/side-bar-back.component";
-import {FooterBackComponent} from "./backOffice/footer-back/footer-back.component";
 import {ProfileComponent} from "./backOffice/profile/profile.component";
 import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
+import {AdminDashboardComponent} from "./backOffice/admin-dashboard/admin-dashboard.component";
+import {StudentDashboardComponent} from "./backOffice/student-dashboard/student-dashboard.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -23,6 +24,8 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'homeBack',component:HomeBackComponent},
   {path:'tablous',component:ListUserComponent},
+  {path:'adminDashboard',component:AdminDashboardComponent},
+  {path:'studentDashboard',component:StudentDashboardComponent},
   {path:'**',component:NotFoundComponent}
 ]
 
