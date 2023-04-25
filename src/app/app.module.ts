@@ -19,6 +19,8 @@ import { ProfileComponent } from './backOffice/profile/profile.component';
 import { NotFoundComponent } from './backOffice/not-found/not-found.component';
 import { ListUserComponent } from './backOffice/list-user/list-user.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { ContactComponent } from './backOffice/contact/contact.component';
+import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
     HomeBackComponent,
     ProfileComponent,
     NotFoundComponent,
-    ListUserComponent
+    ListUserComponent,
+    ContactComponent,
+    StatistiqueComponent
   ],
     imports: [
         BrowserModule,

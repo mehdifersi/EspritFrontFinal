@@ -11,6 +11,8 @@ import {FooterBackComponent} from "./backOffice/footer-back/footer-back.componen
 import {ProfileComponent} from "./backOffice/profile/profile.component";
 import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
+import {ContactComponent} from "./backOffice/contact/contact.component";
+import {StatistiqueComponent} from "./backOffice/statistique/statistique.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'homeBack',component:HomeBackComponent},
   {path:'tablous',component:ListUserComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'stat',component:StatistiqueComponent},
   {path:'**',component:NotFoundComponent}
 ]
 
