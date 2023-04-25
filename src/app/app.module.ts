@@ -19,6 +19,7 @@ import { ProfileComponent } from './backOffice/profile/profile.component';
 import { NotFoundComponent } from './backOffice/not-found/not-found.component';
 import { ListUserComponent } from './backOffice/list-user/list-user.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { AddOfferComponent } from './backOffice/add-offer/add-offer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
     HomeBackComponent,
     ProfileComponent,
     NotFoundComponent,
-    ListUserComponent
+    ListUserComponent,
+    AddOfferComponent,
   ],
     imports: [
         BrowserModule,

@@ -13,7 +13,7 @@ export class OffreService {
     return this.http.get<Offre[]>(`${baseUrl}/offre/getAll`);
   }
 
-  postOffre(offre: Offre) {
+  postOffre(offre: any) {
     return this.http.post<Offre>(`${baseUrl}/offre/add`, offre);
   }
 

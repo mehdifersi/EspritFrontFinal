@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
         console.log("succes");
         console.log(data);
         this.login.loginUser(data.token);
-        this.router.navigateByUrl('/homeBack')
+        this.router.navigateByUrl('/homeBack/profile')
         this.login.getCurrentUser(this.loginData.email).subscribe(
           (user:any)=>{
             this.login.setUser(user);
@@ -87,7 +87,10 @@ export class LoginComponent implements OnInit {
               });
               //  window.location.href='/';
 
-            }else{
+            }else if (this.login.getUserRole()=='ADMIN') {
+              this.router.navigateByUrl('/homeBack/add_offre')
+            }
+            else {
               this.login.logout();
             }
 

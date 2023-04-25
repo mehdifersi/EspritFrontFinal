@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<app-nav-bar-back></app-nav-bar-back>
+<!-- ======= Sidebar ======= -->
+<app-side-bar-back></app-side-bar-back>
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Form Layouts</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Offers</li>
+        <li class="breadcrumb-item active">Add Offer</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add an offer</h5>
+            {{offer|json}}
+            <!-- Horizontal Form -->
+            <form class="requires-validation" novalidate>
+              <div class="row mb-3">
+                <label for="OfferTitle" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)] = "offer.title" type="text" class="form-control" id="OfferTitle" name="title">
+                </div>
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Job Type</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input [(ngModel)] = "offer.type" class="form-check-input" type="radio" name="gridRadios" id="TEACHING" value="TEACHING" checked>
+                    <label class="form-check-label" for="TEACHING">
+                      Teaching/Professor
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input [(ngModel)] = "offer.type" class="form-check-input" type="radio" name="gridRadios" id="AGENT" value="ADMINISTRATIF_STAFF">
+                    <label class="form-check-label" for="AGENT">
+                      Administratif Agent
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="row mb-3">
+                <label for="capacity" class="col-sm-2 col-form-label">Spots Available</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)] = "offer.capacity" type="number" class="form-control" id="capacity" name="capacity">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="description" class="col-sm-2 col-form-label">Offer Description</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)] = "offer.description" type="text" class="form-control" id="description" name="description">
+                </div>
+              </div>
+
+
+              <div class="text-center">
+                <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </form><!-- End Horizontal Form -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer-back></app-footer-back>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+</body>
+
+</html>
