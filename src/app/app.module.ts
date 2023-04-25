@@ -21,6 +21,9 @@ import { InterviewDetailsAdminComponent } from './backOffice/interview-details-a
 import { AdminDashboardComponent } from './backOffice/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './backOffice/student-dashboard/student-dashboard.component';
 import { InterviewDetailsStudentComponent } from './backOffice/interview-details-student/interview-details-student.component';
+import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
+import { AdminInterviewsListComponent } from './backOffice/admin-interviews-list/admin-interviews-list.component';
+import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { InterviewDetailsStudentComponent } from './backOffice/interview-details
     AdminDashboardComponent,
     StudentDashboardComponent,
     InterviewDetailsAdminComponent,
-    InterviewDetailsStudentComponent
+    InterviewDetailsStudentComponent,
+    StudentInterviewComponent,
+    AdminInterviewsListComponent,
+    StudentProfileComponent
   ],
     imports: [
         BrowserModule,

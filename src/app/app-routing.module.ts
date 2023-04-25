@@ -12,6 +12,7 @@ import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
 import {AdminDashboardComponent} from "./backOffice/admin-dashboard/admin-dashboard.component";
 import {StudentDashboardComponent} from "./backOffice/student-dashboard/student-dashboard.component";
+import {StudentProfileComponent} from "./backOffice/student-profile/student-profile.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -24,8 +25,8 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'homeBack',component:HomeBackComponent},
   {path:'tablous',component:ListUserComponent},
-  {path:'adminDashboard',component:AdminDashboardComponent},
-  {path:'studentDashboard',component:StudentDashboardComponent},
+  {path:'adminDashboard/:id',component:AdminDashboardComponent},
+  {path:'studentDashboard/:id',component:StudentDashboardComponent},
   {path:'**',component:NotFoundComponent}
 ]
 
