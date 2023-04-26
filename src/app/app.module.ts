@@ -8,8 +8,8 @@ import { HomeComponent } from './frontOffice/home/home.component';
 import { LoginComponent } from './frontOffice/login/login.component';
 import { SignUpComponent } from './frontOffice/sign-up/sign-up.component';
 import { NavBarComponent } from './frontOffice/nav-bar/nav-bar.component';
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from "@angular/common/http";
 import { FooterBackComponent } from './backOffice/footer-back/footer-back.component';
 import { NavBarBackComponent } from './backOffice/nav-bar-back/nav-bar-back.component';
 import { SideBarBackComponent } from './backOffice/side-bar-back/side-bar-back.component';
@@ -24,6 +24,8 @@ import { InterviewDetailsStudentComponent } from './backOffice/interview-details
 import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
 import { AdminInterviewsListComponent } from './backOffice/admin-interviews-list/admin-interviews-list.component';
 import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
+import {AuthInterceptorService} from "./services/auth-interceptor.service";
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,11 @@ import { StudentProfileComponent } from './backOffice/student-profile/student-pr
         FormsModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass :AuthInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
