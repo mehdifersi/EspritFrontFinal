@@ -1,3 +1,5 @@
+import {User} from "./User";
+
 export class Interview {
    idInterview!: number
    scheduledTime!: Date;
@@ -5,4 +7,8 @@ export class Interview {
    heureInterview!: number;
    TotalScore!:number;
    InterviewScore!: number;
-   Deliberation!: string;}
+   Deliberation!: string;
+   evaluator!: User;
+   student!:User;
+
+}
