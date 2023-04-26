@@ -21,20 +21,15 @@ export class StudentProfileComponent implements OnInit{
       this.idStudent = params['id'];
     });
 
-    console.log("the id is ",this.idStudent);
-
     this.userService.getUser(this.idStudent).subscribe(
       {next: (data) => this.student = data,
       })
-
-    console.log("the user is ",this.student);
   }
 
 
-  // ngOnInit(): void {
-  //   this.userService.getUser().subscribe({
-  //     next: (data) => this.interviews = data,
-  //   })
-  // }
-
+  updateProfile(student: User) {
+    this.userService.updateUser(student).subscribe(
+      {next: (data) => this.student = data,
+      })
+  }
 }

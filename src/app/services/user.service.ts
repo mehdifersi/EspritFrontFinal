@@ -23,7 +23,7 @@ export class UserService {
     return this.http.delete(`${baseUrl}/user/delete/`+ id)
   }
   getUser(id:number){
-    return  this.http.get<User>(`${baseUrl}/user/`+id);
+    return  this.http.get<User>(`${baseUrl}/user/`+ id);
   }
   statistique(role:any,cretetria:any){
     return  this.http.get<User>(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
