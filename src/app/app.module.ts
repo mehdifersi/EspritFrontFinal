@@ -25,6 +25,7 @@ import { StudentInterviewComponent } from './backOffice/student-interview/studen
 import { AdminInterviewsListComponent } from './backOffice/admin-interviews-list/admin-interviews-list.component';
 import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/side-bar-back-student.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
     InterviewDetailsStudentComponent,
     StudentInterviewComponent,
     AdminInterviewsListComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    SideBarBackStudentComponent
   ],
     imports: [
         BrowserModule,
