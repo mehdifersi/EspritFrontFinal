@@ -1,95 +1,210 @@
- <h5 class="card-title">Your Interview</h5>
 
-            <form>
-              <div class="row mb-3">
-                <label for="inputFirstname" class="col-sm-2 col-form-label">Firstname</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputFirstname" name="inputFirstname">
+  <div class="pagetitle">
+    <h1>Profile</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Users</li>
+        <li class="breadcrumb-item active">Profile</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section profile">
+    <div class="row">
+      <div class="col-xl-4">
+
+        <div class="card">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+            <h2>{{student.firstname | titlecase}}</h2>
+            <h3>{{student.role | titlecase}}</h3>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-8">
+
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+              </li>
+
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+              </li>
+
+
+            </ul>
+            <div class="tab-content pt-2">
+
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <h5 class="card-title">About</h5>
+
+                <h5 class="card-title">Profile Details</h5>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                  <div class="col-lg-9 col-md-8">{{student.firstname +" "+ student.lastname |titlecase}}</div>
                 </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">CIN</div>
+                  <div class="col-lg-9 col-md-8">{{student.cin}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Email</div>
+                  <div class="col-lg-9 col-md-8">{{student.email}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Phone number</div>
+                  <div class="col-lg-9 col-md-8">{{student.numTel}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Identifiant</div>
+                  <div class="col-lg-9 col-md-8">{{student.identifiant}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Nationality </div>
+                  <div class="col-lg-9 col-md-8">{{student.nationality |titlecase}} </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Study Level</div>
+                  <div class="col-lg-9 col-md-8">{{student.niveauSuivant}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Gender </div>
+                  <div class="col-lg-9 col-md-8">{{student.sexe |titlecase}}</div>
+                </div>
+
               </div>
 
-              <div class="row mb-3">
-                <label for="inputLaststname" class="col-sm-2 col-form-label">Lastname</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputLaststname" name="inputLaststname">
-                </div>
-              </div>
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
-              <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail" name="inputEmail">
-                </div>
-              </div>
+                <!-- Profile Edit Form -->
+                <form>
 
-              <div class="row mb-3">
-                <label for="inputPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" id="inputPhoneNumber" name="inputPhoneNumber">
-                </div>
-              </div>
+                  <div class="row mb-3">
+                    <label for="firstname" class="col-md-4 col-lg-3 col-form-label">Firstname</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="firstname" type="text" class="form-control" id="firstname" [(ngModel)]="student.firstname" #firstname="ngModel" required minlength="4">
+                      <div  class="alert alert-danger" *ngIf="firstname.invalid && firstname.touched">
+                        <div *ngIf="firstname.errors?.['required']"> Firstname is required !</div>
+                        <div *ngIf="firstname.errors?.['minlength']"> Firstname minlength is 4 letters !</div>
+                      </div>
 
-              <div class="row mb-3">
-                <label for="inputCIN" class="col-sm-2 col-form-label">CIN</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" id="inputCIN" name="inputCIN" disabled>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inputNationality" class="col-sm-2 col-form-label">Nationality</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputNationality" name="inputNationality" disabled>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inputStudyLevel" class="col-sm-2 col-form-label">Study level</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputStudyLevel" name="inputStudyLevel" disabled>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inputFile" class="col-sm-2 col-form-label">File Upload</label>
-                <div class="col-sm-10">
-                  <input class="form-control" type="file" id="inputFile" name="inputFile">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inputBirthDate" class="col-sm-2 col-form-label">Birth Date</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" id="inputBirthDate" name="inputBirthDate">
-                </div>
-              </div>
-
-              <fieldset class="row mb-3">
-                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-                <div class="col-sm-10">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="FEMME" checked disabled>
-                    <label class="form-check-label" for="femaleRadio">
-                      Female
-                    </label>
+                    </div>
                   </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genderRadio" id="maleRadio" value="HOMME" disabled>
-                    <label class="form-check-label" for="maleRadio">
-                      Male
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
 
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label">Submit Button</label>
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Submit Form</button>
-                </div>
+
+                  <div class="row mb-3">
+                    <label for="lastname" class="col-md-4 col-lg-3 col-form-label">Lastname</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="lastname" type="text" class="form-control" id="lastname" [(ngModel)]="student.lastname" #lastname="ngModel" required minlength="4">
+                      <div  class="alert alert-danger" *ngIf="lastname.invalid && lastname.touched">
+                        <div *ngIf="lastname.errors?.['required']"> Lastname is required !</div>
+                        <div *ngIf="lastname.errors?.['minlength']"> Lastname minlength is 4 letters !</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="cin" class="col-md-4 col-lg-3 col-form-label">CIN</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="cin" type="number" class="form-control" id="cin" [(ngModel)]="student.cin" disabled>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="email" type="email" class="form-control" id="email" [(ngModel)]="student.email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required #email="ngModel">
+                      <div  class="alert alert-danger" *ngIf="email.invalid && email.touched">
+                        <div *ngIf="email.errors?.['pattern']"> Email pattern is incorrect !</div>
+                        <div *ngIf="email.errors?.['required']">Email required !</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="phoneNumber" class="col-md-4 col-lg-3 col-form-label">Phone number</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="phoneNumber" type="number" class="form-control" id="phoneNumber" [(ngModel)]="student.numTel"  required #phoneNumber="ngModel">
+                      <div  class="alert alert-danger" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                        <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required !</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="identifiant" class="col-md-4 col-lg-3 col-form-label">Identifiant</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="identifiant" type="text" class="form-control" id="identifiant" [(ngModel)]="student.identifiant" disabled>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="nationality" class="col-md-4 col-lg-3 col-form-label">Nationality</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="nationality" type="email" class="form-control" id="nationality" [(ngModel)]="student.nationality" disabled>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="studyLevel" class="col-md-4 col-lg-3 col-form-label">Study level</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="studyLevel" type="email" class="form-control" id="studyLevel" [(ngModel)]="student.niveauSuivant" disabled>
+                    </div>
+                  </div>
+
+                  <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="FEMME" [(ngModel)]="student.sexe" checked disabled>
+                        <label class="form-check-label" for="femaleRadio">
+                          Female
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genderRadio" id="maleRadio" value="HOMME"  [(ngModel)]="student.sexe" disabled>
+                        <label class="form-check-label" for="maleRadio">
+                          Male
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+
+<!--                  <div class="row mb-3">-->
+<!--                    <label for="inputFile" class="col-sm-2 col-form-label">File Upload</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                      <input class="form-control" type="file" id="inputFile" name="inputFile">-->
+<!--                    </div>-->
+<!--                  </div>-->
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="updateProfile2(idStudent,student)" >Save Changes</button>
+                  </div>
+                </form><!-- End Profile Edit Form -->
               </div>
 
-            </form><!-- End General Form Elements -->
+            </div><!-- End Bordered Tabs -->
 
+          </div>
+        </div>
 
-
+      </div>
+    </div>
+  </section>
