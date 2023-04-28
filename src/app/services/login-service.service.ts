@@ -52,15 +52,12 @@ export class LoginServiceService {
   public logout(){
 
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('User');
     return true;
-
 
   }
 
   public getToken(){
-
-
     return localStorage.getItem('token');
 
   }

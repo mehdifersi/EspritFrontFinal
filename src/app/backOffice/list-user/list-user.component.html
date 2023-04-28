@@ -38,11 +38,9 @@
         <div class="card">
           <div  class="card-body">
             <h5 class="card-title"> User Datatables</h5>
-            <p>this is user dataTable table</p>
-
-            <!-- Table with stripped rows -->
-            <table *ngFor="let user of listUsers" class="table datatable">
-              <thead>
+            <p>this is user dataTable table to upload User data click on : </p>
+            <input type="file" (change)="uploadUser(($event))">
+            <table  class="table datatable">
               <tr>
                 <th scope="col">firstname</th>
                 <th scope="col">lastname</th>
@@ -56,22 +54,22 @@
                 <th scope="col">enabled</th>
                 <th scope="col">niveau</th>
                 <th scope="col">numTel</th>
+                <th scope="col">Actions </th>
               </tr>
-              </thead>
-              <tbody>
-              <tr>
+              <tbody >
+              <tr *ngFor="let user of listUsers">
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.sexe}}</td>
                 <td>{{user.nationality}}</td>
                 <td>{{user.typeCours}}</td>
-                <td>{{user.password}}</td>
                 <td>{{user.cin}}</td>
                 <td>{{user.locked}}</td>
                 <td>{{user.enabled}}</td>
                 <td>{{user.niveauSuivant}}</td>
                 <td>{{user.numTel}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" >delete</button></td>
               </tr>
               </tbody>
             </table>

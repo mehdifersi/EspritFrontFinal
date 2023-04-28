@@ -30,7 +30,10 @@ export class UserService {
     return  this.http.get<string>(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
   }
 
-  generateBadge(id: number | undefined){
-    return  this.http.get<User>(`${baseUrl}/badge/generate/`+id);
+  generateBadge(id: number){
+    return  this.http.get(`${baseUrl}/user/badge/generate/`+id, { responseType: 'blob' });
+  }
+  uploadUser(file:File){
+    return this.http.post(`${baseUrl}/user/upload-users-data`,file)
   }
 }

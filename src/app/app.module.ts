@@ -21,6 +21,12 @@ import { ListUserComponent } from './backOffice/list-user/list-user.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { ContactComponent } from './backOffice/contact/contact.component';
 import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
+import {UploaderModule} from "angular-uploader";
+import {NgApexchartsModule} from "ng-apexcharts";
+import {MatDialogModule} from "@angular/material/dialog";
+import { UploadFileComponent } from './backOffice/upload-file/upload-file.component';
+import {MatButtonModule} from "@angular/material/button";
+import {NgbActiveModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -38,15 +44,21 @@ import { StatistiqueComponent } from './backOffice/statistique/statistique.compo
     NotFoundComponent,
     ListUserComponent,
     ContactComponent,
-    StatistiqueComponent
+    StatistiqueComponent,
+    UploadFileComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgxPageScrollModule,
-        FormsModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgxPageScrollModule,
+    FormsModule,
+    HttpClientModule,
+    UploaderModule,
+    NgApexchartsModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgbModalModule
+  ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass :AuthInterceptorService,
