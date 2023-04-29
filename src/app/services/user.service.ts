@@ -27,7 +27,7 @@ export class UserService {
     return  this.http.get<User>(`${baseUrl}/user/`+id);
   }
   statistique(role:any,cretetria:any){
-    return  this.http.get<string>(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
+    return  this.http.get(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
   }
 
   generateBadge(id: number){

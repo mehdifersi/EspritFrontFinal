@@ -6,6 +6,7 @@ import {UserService} from "../../services/user.service";
 import {HttpHeaders} from "@angular/common/http";
 import {MatDialog} from "@angular/material/dialog";
 import {UploadFileComponent} from "../upload-file/upload-file.component";
+import {Uploader, UploadWidgetConfig, UploadWidgetResult} from "uploader";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -23,6 +24,25 @@ export class ProfileComponent implements OnInit {
   user!:User | null
   private response: any;
   constructor(private login:LoginServiceService,private userService:UserService,private router:Router,private dialogRef:MatDialog) { }
+
+  uploader = Uploader({
+    apiKey: "free"
+  });
+  options: UploadWidgetConfig = {
+    multi: false
+  };
+  // 'onUpdate' vs 'onComplete' attrs on 'upload-dropzone':
+  // - Dropzones are non-terminal by default (they don't have an end
+  //   state), so by default we use 'onUpdate' instead of 'onComplete'.
+  // - To create a terminal dropzone, use the 'onComplete' attribute
+  //   instead and add the 'showFinishButton: true' option.
+  onUpdate = (files: UploadWidgetResult[]) => {
+    alert(files.map(x => x.fileUrl).join("\n"));
+  };
+  width = "600px";
+  height = "375px";
+
+
   ngOnInit(): void {
     this.user=this.login.getUser()
   }
@@ -49,6 +69,9 @@ export class ProfileComponent implements OnInit {
       }
     });}
     openDialog(){
-    this.dialogRef.open(UploadFileComponent)
-    }
+        const modelDiv =document.getElementById('uploadModel');
+        if(modelDiv!=null){
+          modelDiv.style.display='none'
+        }
+      }
 }
