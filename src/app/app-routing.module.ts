@@ -13,6 +13,9 @@ import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
 import {AddOfferComponent} from "./backOffice/offers/add-offer/add-offer.component";
 
+import {ContactComponent} from "./backOffice/contact/contact.component";
+import {StatistiqueComponent} from "./backOffice/statistique/statistique.component";
+
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
   {path:'home',component:HomeComponent},
@@ -24,10 +27,10 @@ const routes: Routes = [
   {path:'homeBack',component:HomeBackComponent,children: [
       { path: 'tablous', component: ListUserComponent },
       {path:'profile',component:ProfileComponent},
-      {path:'add_offer',component:AddOfferComponent}
+      {path:'add_offer',component:AddOfferComponent},
+      {path:'contact',component:ContactComponent},
+      {path:'stat',component:StatistiqueComponent}
     ]},
-  /*{path:'tablous',component:ListUserComponent},
-  {path:'add_offre',component:AddOfferComponent},*/
   {path:'**',component:NotFoundComponent}
 ]
 

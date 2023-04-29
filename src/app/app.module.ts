@@ -23,6 +23,17 @@ import { AddOfferComponent } from './backOffice/offers/add-offer/add-offer.compo
 import { DeleteOfferComponent } from './backOffice/offers/delete-offer/delete-offer.component';
 import { UpdateOffersComponent } from './backOffice/offers/update-offers/update-offers.component';
 import { GetOffersComponent } from './backOffice/offers/get-offers/get-offers.component';
+import { ContactComponent } from './backOffice/contact/contact.component';
+import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
+import {UploaderModule} from "angular-uploader";
+import {NgApexchartsModule} from "ng-apexcharts";
+import {MatDialogModule} from "@angular/material/dialog";
+import { UploadFileComponent } from './backOffice/upload-file/upload-file.component';
+import {MatButtonModule} from "@angular/material/button";
+import {NgbActiveModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import { StatRoleAnneeComponent } from './backOffice/statistique/stat-role-annee/stat-role-annee.component';
+import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/stat-role-sexe.component';
+import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +54,25 @@ import { GetOffersComponent } from './backOffice/offers/get-offers/get-offers.co
     DeleteOfferComponent,
     UpdateOffersComponent,
     GetOffersComponent,
+    ContactComponent,
+    StatistiqueComponent,
+    UploadFileComponent,
+    StatRoleAnneeComponent,
+    StatRoleSexeComponent,
+    StatRoleNationalityComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgxPageScrollModule,
-        FormsModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgxPageScrollModule,
+    FormsModule,
+    HttpClientModule,
+    UploaderModule,
+    NgApexchartsModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgbModalModule
+  ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass :AuthInterceptorService,
