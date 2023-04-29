@@ -17,6 +17,11 @@ export class InterviewService {
     return this.http.get<Interview[]>(`${baseUrl}/interview/getAllInterviewsWithEvaluatorAndStudentName`);
   }
 
+  getInteviewsForTeacher(id:number){
+    return this.http.get<Interview[]>(`${baseUrl}/interview/getInteviewsForTeacher/${id}`);
+
+  }
+
   postInterview(interview: Interview) {
     return this.http.post<Interview>(`${baseUrl}/interview/add`, interview);
   }
@@ -31,6 +36,10 @@ export class InterviewService {
 
   getInterview(id: number) {
     return this.http.get<Interview>(`${baseUrl}/interview/${id}`);
+  }
+
+  getInterviewByStudent(id:number){
+    return this.http.get<Interview>(`${baseUrl}/interview/getInterviewByStudent/${id}`);
   }
 
 }

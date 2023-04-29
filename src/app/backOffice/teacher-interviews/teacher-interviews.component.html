@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<app-nav-bar-back></app-nav-bar-back>
+<!-- ======= Sidebar ======= -->
+<app-side-bar-back-teacher></app-side-bar-back-teacher>
+<main id="main" class="main">
+  <div class="container-fluid">
+
+    <h1 class="h3 mb-2 text-gray-800">All interviews </h1>
+
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+              <th>Interview Id</th>
+              <th>Student First Name</th>
+              <th>Student Last Name</th>
+              <th>Interview Date</th>
+              <th>Interview Heure</th>
+              <th>Changes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor=" let interview of interviews">
+              <td>{{interview.idInterview}}</td>
+              <td>{{interview.studentName}}</td>
+              <td>{{interview.studentLastName}}</td>
+              <td>{{interview.interviewDate | date}}</td>
+              <td>{{interview.interviewHeure}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="deleteInterview(interview.idInterview)">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer-back></app-footer-back>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+</body>
+
+</html>
