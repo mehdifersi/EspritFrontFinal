@@ -17,6 +17,11 @@ export class InterviewService {
     return this.http.get<Interview[]>(`${baseUrl}/interview/getAllInterviewsWithEvaluatorAndStudentName`);
   }
 
+  getInteviewsForTeacher(id:number){
+    return this.http.get<Interview[]>(`${baseUrl}/interview/getInteviewsForTeacher/${id}`);
+
+  }
+
   postInterview(interview: Interview) {
     return this.http.post<Interview>(`${baseUrl}/interview/add`, interview);
   }

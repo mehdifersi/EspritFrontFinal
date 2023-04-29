@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class StudentProfileComponent implements OnInit{
 
   idStudent !: number;
-  student !: any;
+  student !: User;
   constructor(private userService:UserService,private route: ActivatedRoute) {
   }
 

@@ -14,6 +14,7 @@ import {StudentDashboardComponent} from "./backOffice/student-dashboard/student-
 import {AdminDashboardComponent} from "./backOffice/admin-dashboard/admin-dashboard.component";
 import {StudentInterviewComponent} from "./backOffice/student-interview/student-interview.component";
 import {TeacherDashboardComponent} from "./backOffice/teacher-dashboard/teacher-dashboard.component";
+import {TeacherInterviewsComponent} from "./backOffice/teacher-interviews/teacher-interviews.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'adminDashboard',component:AdminDashboardComponent},
   {path:'studentDashboard/:id',component:StudentDashboardComponent},
   {path:'studentInterview/:id',component:StudentInterviewComponent},
+  {path:'teacherInterviews/:id',component:TeacherInterviewsComponent},
   {path:'teacherDashboard/:id',component:TeacherDashboardComponent},
 
 
