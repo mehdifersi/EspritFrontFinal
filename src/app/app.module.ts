@@ -19,6 +19,10 @@ import { ProfileComponent } from './backOffice/profile/profile.component';
 import { NotFoundComponent } from './backOffice/not-found/not-found.component';
 import { ListUserComponent } from './backOffice/list-user/list-user.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { AddOfferComponent } from './backOffice/offers/add-offer/add-offer.component';
+import { DeleteOfferComponent } from './backOffice/offers/delete-offer/delete-offer.component';
+import { UpdateOffersComponent } from './backOffice/offers/update-offers/update-offers.component';
+import { GetOffersComponent } from './backOffice/offers/get-offers/get-offers.component';
 import { ContactComponent } from './backOffice/contact/contact.component';
 import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
 import {UploaderModule} from "angular-uploader";
@@ -46,6 +50,10 @@ import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role
     ProfileComponent,
     NotFoundComponent,
     ListUserComponent,
+    AddOfferComponent,
+    DeleteOfferComponent,
+    UpdateOffersComponent,
+    GetOffersComponent,
     ContactComponent,
     StatistiqueComponent,
     UploadFileComponent,

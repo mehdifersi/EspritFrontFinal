@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Offre } from '../core/Model/Offre';
 import baseUrl from './helpers.service';
 
@@ -13,8 +13,9 @@ export class OffreService {
     return this.http.get<Offre[]>(`${baseUrl}/offre/getAll`);
   }
 
-  postOffre(offre: Offre) {
-    return this.http.post<Offre>(`${baseUrl}/offre/add`, offre);
+  postOffre(offre: any) {
+    console.log(offre)
+    return this.http.post<any>(`${baseUrl}/offre/add`,offre);
   }
 
   updateOffre(offre: Offre) {

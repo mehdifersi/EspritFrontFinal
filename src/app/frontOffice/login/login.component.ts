@@ -73,21 +73,32 @@ export class LoginComponent implements OnInit {
         this.login.getCurrentUser(this.loginData.email).subscribe(
           (user:any)=>{
             this.login.setUser(user);
-             console.log(user);
+            console.log(user);
 
             if(user.role=='STUDENT'){
 
               Swal.fire('Bienvenue',this.login.getUser()?.firstname, 'success').then((result)=>{
                 if(result.isConfirmed){
 
-                  this.router.navigate(['/profile']);
+                  this.router.navigate(['/homeBack/profile']);
+
 
                   // window.location.href='/';
                 }
               });
               //  window.location.href='/';
 
-            }else{
+            }else if(user.role=='ADMIN'){
+
+              Swal.fire('Bienvenue',this.login.getUser()?.firstname, 'success').then((result)=>{
+                if(result.isConfirmed){
+
+                  this.router.navigate(['/homeBack/add_offer']);
+
+                  // window.location.href='/';
+                }
+              });}
+              else {
               this.login.logout();
             }
 
