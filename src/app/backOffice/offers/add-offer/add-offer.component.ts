@@ -1,30 +1,28 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {OffreService} from "../../../services/offre.service";
+import {Type} from "../../../core/Model/Type";
+import {Offre} from "../../../core/Model/Offre";
 import {HttpClient} from "@angular/common/http";
-import {OffreService} from "../../services/offre.service";
-import {Type} from "../../core/Model/Type";
-import {Offre} from "../../core/Model/Offre";
 
 @Component({
   selector: 'app-add-offer',
   templateUrl: './add-offer.component.html',
   styleUrls: ['./add-offer.component.css']
 })
-export class AddOfferComponent implements OnInit{
+export class AddOfferComponent {
   offer: Offre = {
     title: "",
     type: "" as Type,
     description: "",
     capacity: 10
   };
-  constructor(private offreService: OffreService,private router: Router) {}
+  constructor(private offreService: OffreService,private router: Router,private http:HttpClient) {}
 
   ngOnInit() {
-    this.initValidation();
-
   }
 
-  initValidation() {
+  /*initValidation() {
     "use strict";
     const forms = document.querySelectorAll(".requires-validation");
     Array.from(forms).forEach(form => {
@@ -57,5 +55,12 @@ export class AddOfferComponent implements OnInit{
       );
     });
   }
-
+*/
+  formSubmit() {
+    this.offreService.postOffre(this.offer).subscribe(
+      (data:any)=> {
+        console.log("succes");
+        console.log(data);
+      })
+  }
 }

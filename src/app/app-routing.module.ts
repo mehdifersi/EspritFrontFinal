@@ -11,7 +11,7 @@ import {FooterBackComponent} from "./backOffice/footer-back/footer-back.componen
 import {ProfileComponent} from "./backOffice/profile/profile.component";
 import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
-import {AddOfferComponent} from "./backOffice/add-offer/add-offer.component";
+import {AddOfferComponent} from "./backOffice/offers/add-offer/add-offer.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -23,8 +23,8 @@ const routes: Routes = [
   {path:'sideback',component:SideBarBackComponent},
   {path:'homeBack',component:HomeBackComponent,children: [
       { path: 'tablous', component: ListUserComponent },
-      { path: 'add_offre', component: AddOfferComponent },
       {path:'profile',component:ProfileComponent},
+      {path:'add_offer',component:AddOfferComponent}
     ]},
   /*{path:'tablous',component:ListUserComponent},
   {path:'add_offre',component:AddOfferComponent},*/

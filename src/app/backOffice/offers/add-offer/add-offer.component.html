@@ -40,7 +40,7 @@
             <h5 class="card-title">Add an offer</h5>
             {{offer|json}}
             <!-- Horizontal Form -->
-            <form class="requires-validation" novalidate>
+            <form class="form" method="post" (ngSubmit)="formSubmit()">
               <div class="row mb-3">
                 <label for="OfferTitle" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
@@ -79,7 +79,7 @@
 
 
               <div class="text-center">
-                <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
               </div>
             </form><!-- End Horizontal Form -->

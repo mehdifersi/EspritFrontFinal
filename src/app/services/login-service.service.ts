@@ -18,7 +18,7 @@ export class LoginServiceService {
   user!:User
   public generateToken(loginData:any){
 
-    return this.http.post(`${baseUrl}/api/v1/auth/generate-token`, loginData);
+    return this.http.post(`${baseUrl}/api/v1/auth/generate-token`,loginData);
 
   }
 
@@ -52,15 +52,12 @@ export class LoginServiceService {
   public logout(){
 
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('User');
     return true;
-
 
   }
 
   public getToken(){
-
-
     return localStorage.getItem('token');
 
   }
@@ -68,7 +65,7 @@ export class LoginServiceService {
 
   public getUser(){
 
-     let userStr= localStorage.getItem('User');
+    let userStr= localStorage.getItem('User');
     if(userStr!=null){
       this.user=JSON.parse(userStr)
       return this.user;
@@ -91,9 +88,9 @@ export class LoginServiceService {
   }
 
 
- public getUserRole(){
+  public getUserRole(){
 
- return this.user.role
+    return this.user.role
 
 
   }
