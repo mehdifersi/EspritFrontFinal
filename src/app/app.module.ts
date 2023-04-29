@@ -20,14 +20,18 @@ import { ListUserComponent } from './backOffice/list-user/list-user.component';
 import { InterviewDetailsAdminComponent } from './backOffice/interview-details-admin/interview-details.component';
 import { AdminDashboardComponent } from './backOffice/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './backOffice/student-dashboard/student-dashboard.component';
-import { InterviewDetailsStudentComponent } from './backOffice/interview-details-student/interview-details-student.component';
 import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
 import { AdminInterviewsListComponent } from './backOffice/admin-interviews-list/admin-interviews-list.component';
 import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/side-bar-back-student.component';
+import { TeacherInterviewsComponent } from './backOffice/teacher-interviews/teacher-interviews.component';
+import { SideBarBackTeacherComponent } from './backOffice/side-bar-back-teacher/side-bar-back-teacher.component';
+import { TeacherDashboardComponent } from './backOffice/teacher-dashboard/teacher-dashboard.component';
+import { DatePipe } from '@angular/common';
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +51,13 @@ import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/
     AdminDashboardComponent,
     StudentDashboardComponent,
     InterviewDetailsAdminComponent,
-    InterviewDetailsStudentComponent,
     StudentInterviewComponent,
     AdminInterviewsListComponent,
     StudentProfileComponent,
-    SideBarBackStudentComponent
+    SideBarBackStudentComponent,
+    TeacherInterviewsComponent,
+    SideBarBackTeacherComponent,
+    TeacherDashboardComponent
   ],
     imports: [
         BrowserModule,
@@ -63,8 +69,9 @@ import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass :AuthInterceptorService,
-    multi:true
-  }],
+    multi:true,
+  },
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,4 +33,8 @@ export class InterviewService {
     return this.http.get<Interview>(`${baseUrl}/interview/${id}`);
   }
 
+  getInterviewByStudent(id:number){
+    return this.http.get<Interview>(`${baseUrl}/interview/getInterviewByStudent/${id}`);
+  }
+
 }

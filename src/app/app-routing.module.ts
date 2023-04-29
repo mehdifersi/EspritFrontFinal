@@ -13,6 +13,7 @@ import {ListUserComponent} from "./backOffice/list-user/list-user.component";
 import {StudentDashboardComponent} from "./backOffice/student-dashboard/student-dashboard.component";
 import {AdminDashboardComponent} from "./backOffice/admin-dashboard/admin-dashboard.component";
 import {StudentInterviewComponent} from "./backOffice/student-interview/student-interview.component";
+import {TeacherDashboardComponent} from "./backOffice/teacher-dashboard/teacher-dashboard.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -28,6 +29,9 @@ const routes: Routes = [
   {path:'adminDashboard',component:AdminDashboardComponent},
   {path:'studentDashboard/:id',component:StudentDashboardComponent},
   {path:'studentInterview/:id',component:StudentInterviewComponent},
+  {path:'teacherDashboard/:id',component:TeacherDashboardComponent},
+
+
   {path:'**',component:NotFoundComponent}
 ]
 
