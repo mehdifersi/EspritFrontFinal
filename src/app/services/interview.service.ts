@@ -53,4 +53,16 @@ export class InterviewService {
     return this.http.get<Interview>(`${baseUrl}/interview/getInterviewByStudent/${id}`,  httpOptions);
   }
 
+  addInterview2(id:number,interview:Interview){
+    let tokenStr = localStorage.getItem('token');
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenStr}`
+      })
+    }
+    return this.http.post<Interview>(`${baseUrl}/interview/addInterview/${id}`, interview, httpOptions);
+  }
+
+
 }
