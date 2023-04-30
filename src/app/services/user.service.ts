@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+
+
   constructor(private http:HttpClient) { }
 
   getUsers(){
@@ -37,8 +39,17 @@ export class UserService {
   }
 
   updateUser2(id: number, user: User): Observable<User> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.put<User>(`${baseUrl}/user/updateUser/${id}`, user, { headers });
+    let tokenStr = localStorage.getItem('token');
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenStr}`
+      })
+    }
+
+    console.log(tokenStr)
+    //const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put<User>(`${baseUrl}/user/updateUser/${id}`, user, httpOptions);
   }
 
 }

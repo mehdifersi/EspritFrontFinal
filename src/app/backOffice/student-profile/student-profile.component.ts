@@ -28,7 +28,7 @@ export class StudentProfileComponent implements OnInit{
 
 
   updateProfile2(idStudent:number,student: User) {
-
+console.log(student, idStudent)
     this.userService.updateUser2(idStudent, student)
       .subscribe(
         updatedUser => {
