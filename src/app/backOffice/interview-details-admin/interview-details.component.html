@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+  <h1 class="h3 mb-2 text-gray-800">All interviews </h1>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+          <tr>
+            <th>Interview Id</th>
+            <th>Evaluator First Name</th>
+            <th>Evaluator Last Name</th>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Interview Date</th>
+            <th>Interview Heure</th>
+            <th>Changes</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let interview of interviews">
+            <td>{{interview.idInterview}}</td>
+            <td>{{interview.evaluatorName}}</td>
+            <td>{{interview.evaluatorLastName}}</td>
+            <td>{{interview.studentName}}</td>
+            <td>{{interview.studentLastName}}</td>
+            <td>{{interview.interviewDate | date}}</td>
+            <td>{{interview.interviewHeure}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="deleteInterview(interview.idInterview)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

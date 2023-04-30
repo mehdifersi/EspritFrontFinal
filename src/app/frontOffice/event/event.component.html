@@ -1,0 +1,112 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class=" z-index-5">
+    <section class="py-3 z-index-5">
+        <div class="col-lg-3 mb-lg-0 mb-5 mt-8 mt-md-5 mt-lg-0" style="width: 250px;position: -webkit-sticky;
+    float: left;
+      position: sticky;
+      height:400px;
+      top: 0;
+      padding: 5px;
+      z-index: 10;
+              overflow-x: hidden;">
+            <ul class="nav flex-column bg-white border-radius-lg p-3 position-sticky top-10 shadow-lg">
+                <li class="nav-item">
+                    <button style="width: 200px; margin-top: 60px" type="button"
+                        class="btn bg-gradient-success btn-block mb-3"  data-bs-toggle="modal" data-bs-target="#basicModal">
+                        Add Event </button>
+                  
+                </li>
+
+
+            </ul>
+        </div>
+
+
+        <div _ngcontent-dba-c4="" class="container" style="margin-top: 100 px">
+            <h2 _ngcontent-dba-c4="" class="title">Esprit Events</h2>
+      
+        </div>
+
+
+          <div class="modal fade" id="basicModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Basic Modal</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+
+                          <label  name="name" class="col-sm-2 col-form-label">Name Event</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control"  [(ngModel)]="eventToadd.eventName" [ngModelOptions]="{standalone: true}">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label  name="bud" class="col-sm-2 col-form-label">budget</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" [(ngModel)]="eventToadd.budget " [ngModelOptions]="{standalone: true}">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label  name="loca" class="col-sm-2 col-form-label">localisation</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" [(ngModel)]="eventToadd.location" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+              
+                          <div class="row mb-3">
+                            <label name="tols" class="col-sm-2 col-form-label">tools</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" [(ngModel)]="eventToadd.tools" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+              
+                          <div class="row mb-3">
+                            <label  class="col-sm-2 col-form-label">start date</label>
+                            <div class="col-sm-10">
+                              <input type="date" class="form-control " [(ngModel)]="eventToadd.start" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">end Date</label>
+                            <div class="col-sm-10">
+                              <input type="date" class="form-control" [(ngModel)]="eventToadd.end" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label  name="decv" class="col-sm-2 col-form-label">description</label>
+                            <div class="col-sm-10">
+                              <textarea class="form-control" style="height: 100px"  [(ngModel)]="eventToadd.description" [ngModelOptions]="{standalone: true}" ></textarea>
+                            </div>
+                          </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary"  (click)="addevent()">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Basic Modal-->
+
+
+
+          <div class="card mb-3" style="width: 1000px; margin-top: 50px;margin-top: 50px;" *ngFor="let event of events" >
+            <div class="row g-0" >
+              <div class="col-md-4">
+                <img src="https://st2.depositphotos.com/1635204/7654/i/600/depositphotos_76549817-stock-photo-word-events-on-colorful-wooden.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{event.eventName}}</h5>
+                  <h4>{{event.budget}}</h4>
+                  <p class="card-text">{{event.tools}}</p>
+                </div>
+              </div>
+            </div>
+          </div>

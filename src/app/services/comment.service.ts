@@ -7,4 +7,10 @@ import {HttpClient} from "@angular/common/http";
 export class CommentService {
 
   constructor(private http:HttpClient) { }
+
+  addComment(pub: any, id :any) {
+    
+    return this.http.post<any>('http://localhost:9090/comment/addComment/1/'+id, pub);
+
+}
 }
