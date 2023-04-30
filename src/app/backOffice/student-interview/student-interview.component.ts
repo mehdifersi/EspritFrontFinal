@@ -25,19 +25,25 @@ export class StudentInterviewComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.idStudent = params['id'];
     });
-
+console.log(this.idStudent)
     this.userService.getUser(this.idStudent).subscribe(
       {
-        next: (data) => this.student = data,
+        next: (data) => {this.student = data
+        },
       })
     this.interviewService.getInterviewByStudent(this.idStudent).subscribe(
       {
-        next: (data) => this.interview = data,
+        next: (data) => {this.interview = data
+        },
       })
+
   }
 
-  updateInterview(idInterview: any) {
 
+  updateInterview(idInterview: number,interview:Interview) {
+    this.interviewService.updateInterview2(idInterview,interview).subscribe({
+      next:(data)=>{this.interview = data}
+    })
   }
 
   deleteInterview(idInterview: any) {

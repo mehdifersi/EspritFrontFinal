@@ -21,7 +21,6 @@ import { InterviewDetailsAdminComponent } from './backOffice/interview-details-a
 import { AdminDashboardComponent } from './backOffice/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './backOffice/student-dashboard/student-dashboard.component';
 import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
-import { AdminInterviewsListComponent } from './backOffice/admin-interviews-list/admin-interviews-list.component';
 import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/side-bar-back-student.component';
@@ -52,7 +51,6 @@ import { DatePipe } from '@angular/common';
     StudentDashboardComponent,
     InterviewDetailsAdminComponent,
     StudentInterviewComponent,
-    AdminInterviewsListComponent,
     StudentProfileComponent,
     SideBarBackStudentComponent,
     TeacherInterviewsComponent,
