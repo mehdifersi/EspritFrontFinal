@@ -30,7 +30,13 @@ import {NgApexchartsModule} from "ng-apexcharts";
 import {MatDialogModule} from "@angular/material/dialog";
 import { UploadFileComponent } from './backOffice/upload-file/upload-file.component';
 import {MatButtonModule} from "@angular/material/button";
-import {NgbActiveModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbActiveModal,
+  NgbDropdown, NgbDropdownItem,
+  NgbDropdownMenu,
+  NgbDropdownToggle,
+  NgbModalModule
+} from "@ng-bootstrap/ng-bootstrap";
 import { StatRoleAnneeComponent } from './backOffice/statistique/stat-role-annee/stat-role-annee.component';
 import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/stat-role-sexe.component';
 import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
@@ -73,7 +79,11 @@ import { ApplicationComponent } from './frontOffice/application/application.comp
     NgApexchartsModule,
     MatDialogModule,
     MatButtonModule,
-    NgbModalModule
+    NgbModalModule,
+    NgbDropdown,
+    NgbDropdownToggle,
+    NgbDropdownMenu,
+    NgbDropdownItem
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
