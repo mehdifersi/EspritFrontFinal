@@ -4,6 +4,7 @@
   <div class="container">
     <div class="col-md-4 content-center">
       <div class="card card-login card-plain">
+        {{ApplicationData|json}}
         <form class="form" method="post" (ngSubmit)="formSubmit()">
           <div class="header header-primary text-center">
             <div class="logo-container">
@@ -15,48 +16,29 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)] = "ApplicationData.FirstName"(focus)="focus=true" (blur)="focus=false" >
+              <input  [(ngModel)] = "ApplicationData.firstName" type="text" name="firstName" placeholder="Firstname" class="form-control"  (focus)="focus=true" (blur)="focus=false" >
             </div>
             <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
               </div>
-              <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)] = "loginData.password" (focus)="focus1=true" (blur)="focus1=false"/>
+              <input [(ngModel)] = "ApplicationData.lastName"  type="text" name="lastName" placeholder="Lastname" class="form-control" (focus)="focus1=true" (blur)="focus1=false"/>
             </div>
-            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
               <div class="input-group-prepend">
-                <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
+                <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
               </div>
-              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)] = "ApplicationData.email"(focus)="focus=true" (blur)="focus=false" >
+              <input [(ngModel)] = "ApplicationData.email" type="email" name="email" placeholder="Email" class="form-control" (focus)="focus1=true" (blur)="focus1=false"/>
             </div>
-            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
-              <div class="input-group-prepend">
-                <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
-              </div>
-              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)] = "ApplicationData.email"(focus)="focus=true" (blur)="focus=false" >
-            </div>
-            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
-              <div class="input-group-prepend">
-                <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
-              </div>
-              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)] = "ApplicationData.email"(focus)="focus=true" (blur)="focus=false" >
-            </div>
-          </div>
+
           <div class="footer text-center">
-            <button href="#pablo" class="btn btn-primary btn-round btn-lg btn-block" type="submit">Get Started</button>
+            <button type="submit"  class="btn btn-primary btn-round btn-lg btn-block">APPLY</button>
+          </div>
           </div>
         </form>
-        <div class="pull-left">
-          <h6>
-            <a routerLink="/signup" >Create Account</a>
-          </h6>
-        </div>
-        <div class="pull-right">
-          <h6>
-            <a href="#pablo" class="link">Need Help?</a>
-          </h6>
-        </div>
       </div>
     </div>
   </div>
 </div>
+<app-footer></app-footer>
+

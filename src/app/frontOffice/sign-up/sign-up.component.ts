@@ -36,41 +36,41 @@ export class SignUpComponent implements OnInit{
 
   formSubmit(){
     if(this.SignUpData.email.trim() == '' || this.SignUpData.email == null){
-      Swal.fire('Champ obligatoire !!', 'email est un champ obligatoire', 'error');
+      Swal.fire('Required Field !!', 'email is a required field', 'error');
       return;
     }
     if(this.SignUpData.cin.trim() == '' || this.SignUpData.cin == null){
-      Swal.fire('Champ obligatoire !!', 'cin est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'cin is a required field', 'error');
       return;
     }
     if(this.SignUpData.lastname.trim() == '' || this.SignUpData.lastname == null){
-      Swal.fire('Champ obligatoire !!', 'lastname est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'lastname is a required field', 'error');
       return;
     }
     if(this.SignUpData.firstname.trim() == '' || this.SignUpData.firstname == null){
-      Swal.fire('Champ obligatoire !!', 'firstname est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'firstname is a required field', 'error');
       return;
     }
     if(this.SignUpData.sexe.trim() == '' || this.SignUpData.sexe == null){
-      Swal.fire('Champ obligatoire !!', 'select your sexe', 'error');
+      Swal.fire('Required field !!', 'select your sexe', 'error');
       return;
     }
     if(this.SignUpData.niveauActuel.trim() == '' || this.SignUpData.niveauActuel == null){
-      Swal.fire('Champ obligatoire !!', 'niveauActuel est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'Please Select your current level', 'error');
       return;
     }
     if(this.SignUpData.nationality.trim() == '' || this.SignUpData.nationality == null){
-      Swal.fire('Champ obligatoire !!', 'nationality est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'nationality is a required field', 'error');
       return;
     }
     if(this.SignUpData.typeCours.trim() == '' || this.SignUpData.typeCours == null){
-      Swal.fire('Champ obligatoire !!', 'typeCours est un champ obligatoire', 'error');
+      Swal.fire('Required field !!', 'typeCours is a required field', 'error');
       return;
     }
     this.signUp.ajouterStudent(this.SignUpData).subscribe(
       (data:any)=>{
         console.log("succes");
         console.log(data);
-        Swal.fire('Registred !!', 'verifier ton email', 'success');});
+        Swal.fire('Registred !!', 'Check your email', 'success');});
   }
 }

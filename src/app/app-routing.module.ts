@@ -17,6 +17,7 @@ import {ContactComponent} from "./backOffice/contact/contact.component";
 import {StatistiqueComponent} from "./backOffice/statistique/statistique.component";
 import {GetOffersComponent} from "./backOffice/offers/get-offers/get-offers.component";
 import {UpdateOffersComponent} from "./backOffice/offers/update-offers/update-offers.component";
+import {ApplicationComponent} from "./frontOffice/application/application.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'nav',component:NavBarComponent},
   {path:'navBack',component:NavBarBackComponent},
   {path:'sideback',component:SideBarBackComponent},
+  {path:'apply/:id',component:ApplicationComponent},
   {path:'homeBack',component:HomeBackComponent,children: [
       { path: 'tablous', component: ListUserComponent },
       {path:'profile',component:ProfileComponent},

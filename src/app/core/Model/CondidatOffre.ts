@@ -1,7 +1,7 @@
 export class CondidatOffre {
   idOffre!: number;
-  FirstName!: string;
-  LastName!: string;
+  firstName!: string;
+  lastName!: string;
   email!: string;
   Notification!: string;
   enableCondidatOffre!: boolean;

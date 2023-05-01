@@ -10,8 +10,8 @@ import { CondidatOffre } from '../core/Model/CondidatOffre';
 export class CondidatOffreService {
 
   constructor(private http:HttpClient) { }
-  addapplicationandassigntooffer( condidatOffre:any,  id_offre:any){
-    this.http.post(`${baseUrl}/candidatoffre/assign/`+id_offre,condidatOffre);
+  addapplicationandassigntooffer( condidatOffre:CondidatOffre,  id_offre:number){
+    return this.http.post(`${baseUrl}/candidatoffre/assign/${id_offre}`,condidatOffre);
   }
   getCondidatOffres(){
     return  this.http.get<CondidatOffre[]>(`${baseUrl}/condidatOffre/getAll`);

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as Rellax from 'rellax';
 import {Offre} from "../../core/Model/Offre";
 import {OffreService} from "../../services/offre.service";
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {SharedService} from "../../services/sharedservices.service";
 
@@ -32,22 +32,7 @@ export class HomeComponent implements  OnInit {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
   }
-  ngOnDestroy(){
-    var body = document.getElementsByTagName('body')[0];
-    body.classList.remove('landing-page');
-    var navbar = document.getElementsByTagName('nav')[0];
-    navbar.classList.remove('navbar-transparent');
-  }
 
-  application(idOffre: number) {
-    this.offreService.getOffre(idOffre).subscribe(
-      (offre) => {
-        this.sharedServices.selectedOffer = offre;
-        this.router.navigateByUrl("/homeBack/updateoffer")
-      },
-      (error) => {
-        console.log('Error while getting offre: ' + error);
-      }
-    );
-  }
+
+
 }
