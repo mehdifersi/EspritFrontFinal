@@ -38,9 +38,13 @@
         <div class="card">
           <div  class="card-body">
             <h5 class="card-title"> User Datatables</h5>
-            <p>this is user dataTable table to upload User data click on : </p>
-            <input type="file" (change)="uploadUser(($event))">
-            <table  class="table datatable">
+            <p>this is user dataTable table to upload User data select a.xlsx file and  click on : </p>
+            <div class="upload-container">
+              <input type="file" id="file-upload" name="file-upload" (change)="uploadUser($event)"  style="display: block" >
+              <button  type="submit" class="btn btn-outline-secondary" (click)="saveUser()" >Add users to database</button>
+              <button class="btn btn-outline-secondary" (click)="exportexcel()">Export to Excel</button>
+            </div>
+            <table  class="table datatable" id="excel-table">
               <tr>
                 <th scope="col">firstname</th>
                 <th scope="col">lastname</th>
@@ -48,7 +52,6 @@
                 <th scope="col">sexe</th>
                 <th scope="col">nationality</th>
                 <th scope="col">typeCours</th>
-                <th scope="col">password</th>
                 <th scope="col">cin</th>
                 <th scope="col">locked</th>
                 <th scope="col">enabled</th>
@@ -56,8 +59,8 @@
                 <th scope="col">numTel</th>
                 <th scope="col">Actions </th>
               </tr>
-              <tbody >
-              <tr *ngFor="let user of listUsers">
+              <tbody *ngFor="let user of listUsers" >
+              <tr>
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
                 <td>{{user.email}}</td>
@@ -69,7 +72,7 @@
                 <td>{{user.enabled}}</td>
                 <td>{{user.niveauSuivant}}</td>
                 <td>{{user.numTel}}</td>
-                <td><button type="button" class="btn btn-outline-danger btn-sm" >delete</button></td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteUser(user.id)" >delete</button></td>
               </tr>
               </tbody>
             </table>
