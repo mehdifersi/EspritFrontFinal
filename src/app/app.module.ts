@@ -42,6 +42,7 @@ import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/s
 import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
 import { ApplicationComponent } from './frontOffice/application/application.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,7 @@ import { ApplicationComponent } from './frontOffice/application/application.comp
     StatRoleAnneeComponent,
     StatRoleSexeComponent,
     StatRoleNationalityComponent,
-    ApplicationComponent
+    ApplicationComponent,
   ],
   imports: [
     BrowserModule,
