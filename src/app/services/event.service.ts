@@ -22,4 +22,13 @@ export class EventService {
     return this.http.post<any>('http://localhost:9090/event/addEvent', event);
 
 }
+
+delete(id :any){
+  return this.http.delete<any>('http://localhost:9090/event/delete/'+id);
+}
+
+update(event : any){
+  return this.http.put<any>('http://localhost:9090/event/update' , event);
+
+}
 }

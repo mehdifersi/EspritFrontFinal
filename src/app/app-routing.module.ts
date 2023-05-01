@@ -16,11 +16,14 @@ import {StudentInterviewComponent} from "./backOffice/student-interview/student-
 import { EventComponent } from './frontOffice/event/event.component';
 import { PublicationComponent } from './frontOffice/publication/publication.component';
 import { PublicationBackComponent } from './backOffice/publication-back/publication-back.component';
+import { EventBackComponent } from './backOffice/event-back/event-back.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
   {path:'home',component:HomeComponent},
   {path:'event',component:EventComponent},
+  {path:'eventB',component:EventBackComponent},
+
   {path:'post',component:PublicationComponent},
   {path:'postB',component:PublicationBackComponent},
 

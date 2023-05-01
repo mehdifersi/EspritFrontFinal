@@ -29,6 +29,7 @@ import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/
 import { EventComponent } from './frontOffice/event/event.component';
 import { PublicationComponent } from './frontOffice/publication/publication.component';
 import { PublicationBackComponent } from './backOffice/publication-back/publication-back.component';
+import { EventBackComponent } from './backOffice/event-back/event-back.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { PublicationBackComponent } from './backOffice/publication-back/publicat
     SideBarBackStudentComponent,
     EventComponent,
     PublicationComponent,
-    PublicationBackComponent
+    PublicationBackComponent,
+    EventBackComponent
   ],
     imports: [
         BrowserModule,

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -29,7 +30,7 @@ export const ROUTES: RouteInfo[] = [
 export class SideBarBackComponent implements OnInit {
   menuItems?: any[];
 
-  constructor() { }
+  constructor( private route: Router,) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -40,4 +41,8 @@ export class SideBarBackComponent implements OnInit {
     }
     return true;
   };
+
+  rederect(s :any){
+    this.route.navigate(['/'+s])
+  }
 }

@@ -38,6 +38,24 @@ addrate(id : any , rate : any)
   this.ratingservice.addrate(id , this.select).subscribe()
   console.log("add")
 }
+updatecomm = new Comment()
+divcommU : boolean =false;
+showU(c :any){
+  this.divcommU = ! this.divcommU
+  this.updatecomm = c
+}
+updateComm(){
+  this.commenservice.update(this.updatecomm ,this.updatecomm.idComment).subscribe(
+    data => {},
+    err => {
+      this.errmsg = err.error.text;
+      console.log(err.error.text)
+      if(err.error.text == 'add successfuly'){
+        window.location.reload()
+      }
+    }
+      
+  )}
 addcoment(){
   this.commenservice.addComment(this.commadd, this.pubComm.idPublication).subscribe(
     data => {},
@@ -97,6 +115,10 @@ this.divcomm = !this.divcomm
   rateb : boolean=false
   showrate(){
     this.rateb = ! this.rateb
+  }
+
+  deletecom(id : any){
+    this.commenservice.Delete(id).subscribe(data=>{window.location.reload()})
   }
 }
 

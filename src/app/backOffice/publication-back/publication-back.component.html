@@ -193,9 +193,26 @@
                   <button type="button" class="btn btn-success" (click)="addcoment()">save</button>
 
               </form>
+              <form *ngIf="divcommU">
+                <div class="row mb-3" >
+                </div>
+                  <div class="row mb-3">
+                    <label  name="decv" class="col-sm-2 col-form-label">content</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" style="height: 100px"  [(ngModel)]="updatecomm.content" [ngModelOptions]="{standalone: true}" ></textarea>
+                    </div>
+                  </div>
+                
+                  <button type="button" class="btn btn-success" (click)="updateComm()">save</button>
+
+              </form>
 
                 <div class="card-body" *ngFor="let c of pubComm.listOfComments">
-                    <h5 class="card-title">Comment :</h5>
+                  <span class="badge bg-danger" (click)="deletecom(c.idComment)">Delete</span>
+                                         <span class="badge bg-warning" (click)="showU(c)">Update</span>
+                                      <h5 class="card-title">Comment :</h5>                 
+                                         
+
 
                    {{c.content}}
                 </div>
