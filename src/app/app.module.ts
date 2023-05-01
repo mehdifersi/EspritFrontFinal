@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgxPageScrollModule} from "ngx-page-scroll";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './frontOffice/footer/footer.component';
@@ -18,6 +17,11 @@ import { HomeBackComponent } from './backOffice/home-back/home-back.component';
 import { ProfileComponent } from './backOffice/profile/profile.component';
 import { NotFoundComponent } from './backOffice/not-found/not-found.component';
 import { ListUserComponent } from './backOffice/list-user/list-user.component';
+import { InterviewDetailsAdminComponent } from './backOffice/interview-details-admin/interview-details.component';
+import { AdminDashboardComponent } from './backOffice/admin-dashboard/admin-dashboard.component';
+import { StudentDashboardComponent } from './backOffice/student-dashboard/student-dashboard.component';
+import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
+import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { ContactComponent } from './backOffice/contact/contact.component';
 import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
@@ -31,6 +35,14 @@ import { StatRoleAnneeComponent } from './backOffice/statistique/stat-role-annee
 import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/stat-role-sexe.component';
 import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
 
+import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/side-bar-back-student.component';
+import { TeacherInterviewsComponent } from './backOffice/teacher-interviews/teacher-interviews.component';
+import { SideBarBackTeacherComponent } from './backOffice/side-bar-back-teacher/side-bar-back-teacher.component';
+import { TeacherDashboardComponent } from './backOffice/teacher-dashboard/teacher-dashboard.component';
+import { DatePipe } from '@angular/common';
+
+
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,12 +76,23 @@ import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role
     MatDialogModule,
     MatButtonModule,
     NgbModalModule
+    InterviewDetailsAdminComponent,
+    AdminDashboardComponent,
+    StudentDashboardComponent,
+    InterviewDetailsAdminComponent,
+    StudentInterviewComponent,
+    StudentProfileComponent,
+    SideBarBackStudentComponent,
+    TeacherInterviewsComponent,
+    SideBarBackTeacherComponent,
+    TeacherDashboardComponent
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass :AuthInterceptorService,
-    multi:true
-  }],
+    multi:true,
+  },
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
