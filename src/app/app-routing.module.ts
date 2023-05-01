@@ -10,6 +10,7 @@ import {SideBarBackComponent} from "./backOffice/side-bar-back/side-bar-back.com
 import {ProfileComponent} from "./backOffice/profile/profile.component";
 import {NotFoundComponent} from "./backOffice/not-found/not-found.component";
 import {ListUserComponent} from "./backOffice/list-user/list-user.component";
+import {ComplaintsComponent} from "./complaints/complaints.component";
 
 import {ContactComponent} from "./backOffice/contact/contact.component";
 import {StatistiqueComponent} from "./backOffice/statistique/statistique.component";
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'sideback',component:SideBarBackComponent},
   {path:'profile',component:ProfileComponent},
   {path:'homeBack',component:HomeBackComponent},
+  {path:'complaints',component:ComplaintsComponent},
   {path:'tablous',component:ListUserComponent},
   {path:'contact',component:ContactComponent},
   {path:'stat',component:StatistiqueComponent},

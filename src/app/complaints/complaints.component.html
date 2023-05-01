@@ -1,0 +1,385 @@
+<app-nav-bar-back></app-nav-bar-back>
+<app-side-bar-back></app-side-bar-back>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+
+  <link rel = "stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src =" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  <script src ="  https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+</head>
+
+<body>
+
+<!--hover-->
+<!--<td>-->
+<!--  <button type="button" class="btn btn-primary" (mouseenter)="openModal(complaint,'userDetail')" style="transition: all 0.2s ease-in-out;">Hover me!</button>-->
+
+<!--</td>-->
+
+
+<!--  records -->
+  <div style="display:flex; flex-direction:row; position: absolute; top: 300px; left: 650px;">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="card bg-white" style="width: 10cm; height:4cm; padding: 1rem; margin-right: 1rem;  position: absolute; top: -200px; left: -310px;">
+        <div class="card-body">
+            <div class="col"  style="border-left: 1px solid grey; ">
+              <div class="h3 font-weight-bold mb-1" style="font-size:40px;; margin-left: 0.3rem; ">{{complaintsFor2023}}</div>
+              <span class="h6 text-gray" style="margin-left: 0.3rem;">Total</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-white" style="width: 10cm; height:4cm; padding: 1rem; margin-right: 1rem; position: absolute; top: -200px; left: 85px;">
+        <div class="card-body ">
+            <div class="col " style="border-left: 1px solid green;">
+              <div class="h3 font-weight-bold mb-1" style="font-size:40px ; margin-left: 0.3rem;">{{complaintsResolved}}</div>
+              <span class="h6 text-gray " style="margin-left: 0.3rem;">Resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <div class="card bg-white" style="width: 10cm; height:4cm; padding: 1rem; margin-right: 1rem; position: absolute; top: -200px; left: 480px;">
+        <div class="card-body">
+            <div class="col" style="border-left: 1px solid blue;">
+              <div class="h3 font-weight-bold mb-1" style="font-size:40px; margin-left: 0.3rem;">{{complaintsInvestigating}}</div>
+              <span class="h6 text-gray" style="margin-left: 0.3rem;">Investigating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <div class="card bg-white" style="width: 10cm; height:4cm; padding: 1rem; margin-right: 1rem; position: absolute; top: -200px; left: 880px;">
+          <div class="card-body">
+            <div class="col" style="border-left: 1px solid red;" >
+              <div class="h3 font-weight-bold mb-1" style="font-size:40px; margin-left: 0.3rem;">{{complaintsRejected}}</div>
+              <span class="h6 text-gray" style="margin-left: 0.3rem;">Rejected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  </div>
+<!--end records -->
+
+
+<!--  progress-->
+  <div class="card bg-white" style="width: 8cm; height: 8cm; padding: 1rem; margin-left: 0.55rem; position: absolute; top: 100px; right: 30px;">
+    <div class="card-header bg-white">
+      <h5 class="card-title bg-white mb-0 ">Completed this month  </h5>
+      <div class="card-body bg-white">
+          <circle-progress [percent]="(complaintsRejected/complaintsFor2023 * 100) + (complaintsResolved/complaintsFor2023 * 100)" [radius]="80" [outerStrokeWidth]="8" [innerStrokeWidth]="4" [outerStrokeColor]="'#007bff'" [innerStrokeColor]="'#eee'"></circle-progress>
+
+      </div>
+
+    </div>
+
+
+  </div>
+<!--end progress -->
+
+
+
+
+<!--line chart-->
+
+<div style="display:flex; flex-direction:row; justify-content:center; position: absolute; top: 300px; left: 340px;">
+  <div class="card bg-white" style="width: 28cm; height: 15cm; padding: 1rem; margin-right: 0.55rem; ">
+    <div class="card-header bg-white">
+      <h5 class="card-title mb-0 bg-white">Complaints evolution  </h5>
+      <canvas style="width: 20cm; height: 8cm ;" class="bg-white" id="lineChart"></canvas>
+
+    </div>
+
+  </div>
+  </div>
+<!--end line chart -->
+
+
+<!--pie chart -->
+  <div style="display:flex; flex-direction:row; justify-content:center; position: absolute; top: 300px; right: 370px;">
+    <div class="card bg-white" style="width: 13cm; height: 15cm; padding: 1rem; margin-left: 0.55rem;">
+      <div class="card-header bg-white">
+        <h5 class="card-title bg-white ">Complaints chart  </h5>
+      </div>
+        <div class="card-body bg-white">
+        <canvas style="width: 13cm; height: 13cm; margin: 0 auto;"  class ="bg-white" id="chart2"></canvas>
+      </div>
+    </div>
+
+
+  </div>
+
+<!--end pie chart -->
+
+
+
+<!--tab -->
+<div class="card mt-4" style="width: 50cm; height: 15cm; position: absolute; top: 930px; left: 340px;  ">
+  <div class="card-body">
+    <h5 class="card-title">Complaints List</h5>
+
+    <form class="form-inline mb-4">
+      <div class="form-group mr-2">
+        <input type="search" id="search" value="" class="form-control" placeholder="Enter search term">
+      </div>
+      <!--      <button type="submit" class="btn btn-primary btn-danger rounded-pill">Search</button>-->
+    </form>
+
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+      <div class="table-responsive " id="main-container">
+        <table id="tablecomplaints" class="table table-hover mt-4">
+          <thead class="text-center">
+          <tr>
+            <th class="text-center align-middle">ID</th>
+            <th class="text-center align-middle">Subject</th>
+            <th class="text-center align-middle">Content</th>
+            <th class="text-center align-middle">Date</th>
+            <th class="text-center align-middle">Update Date</th>
+            <th class="text-center align-middle">Status</th>
+            <th class="text-center align-middle">Sent by</th>
+            <th class="align-right">  </th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let complaint of complaints; let i = index ">
+            <td class="text-center align-middle">{{ complaint.idComplaint }}</td>
+            <td class="text-center align-middle">{{ complaint.subject }}</td>
+            <td class="text-center align-middle">{{ complaint.content.slice(0, 20) }}...</td>
+            <td class="text-center align-middle">{{ complaint.date }}</td>
+            <td class="text-center align-middle">{{ complaint.updatedate }}</td>
+            <td class="text-center align-middle">
+              <span *ngIf="complaint.status==='PENDING'" class="badge" style="background-color:rgba(244, 155, 31, 0.81);width: 120px">{{ complaint.status }}</span>
+              <span *ngIf="complaint.status==='RESOLVED'" class="badge" style="background-color:rgba(26, 217, 75, 0.74);width: 120px">{{ complaint.status }}</span>
+              <span *ngIf="complaint.status==='REJECTED'" class="badge" style="background-color:rgba(217, 26, 26, 0.74);width: 120px">{{ complaint.status }}</span>
+              <span *ngIf="complaint.status==='INVESTIGATING'" class="badge" style="background-color:rgba(27, 117, 218, 0.74) ;width: 120px">{{ complaint.status }}</span>
+            </td>
+
+            <td class="text-center align-middle">
+              <button type="button" class="btn bg-transparent" id="userD" (click)="openModal(complaint,'userDetail')" style="outline: none; box-shadow: none; color: inherit; border: none;">
+                {{ complaint.complaintPar ? complaint.complaintPar.firstname + ' ' + complaint.complaintPar.lastname : 'anonymous' }}
+              </button>
+            </td>
+
+
+
+<!--            <td class="text-center text-center align-middle">-->
+<!--&lt;!&ndash;              <button type="button" class="btn bg-transparent" id="b2" (click)="openModal(complaint,'update')" style="outline: none; box-shadow: none;"> <span class="fa fa-edit text-dark"></span></button>&ndash;&gt;-->
+<!--              <button type="button" class="btn bg-transparent" id="b2" (click)="onSelect(complaint)" style="outline: none; box-shadow: none;"> <span class="fa fa-edit text-dark"></span></button>-->
+
+<!--            </td>-->
+
+            <td>
+              <select class="form-select" [(ngModel)]="selectedOption" (click)="onSelect(complaint)" style="width: 150px;">
+                <option value="ACTION">ACTION</option>
+                <option value="PENDING">PENDING</option>
+                <option value="RESOLVED">RESOLVED</option>
+                <option value="REJECTED">REJECTED</option>
+                <option value="INVESTIGATING">INVESTIGATING</option>
+              </select>
+            </td>
+
+            <td class="text-center text-center align-middle">
+              <button class="btn bg-transparent" (click)="openModal(complaint,'delete')" style="outline: none; box-shadow: none;">
+                <span class="fa fa-trash text-dark"></span>
+              </button>
+            </td>
+
+            <td class="text-center text-center align-middle">
+              <button class="btn bg-transparent" (click)="openModal(complaint,'show') " style="outline: none; box-shadow: none;">
+                <span class="fa fa-info text-dark"></span>
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<!--end tab -->
+</body>
+
+
+</html>
+
+<!--&lt;!&ndash;            <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <select class="form-control" id="status" name="status" [(ngModel)]="complaint.status">Action&ndash;&gt;-->
+<!--&lt;!&ndash;                      <option value="Resolved">Resolved</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <option value="InProgress">InProgress</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </select>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <app-modal [data]="modalData" ></app-modal>&ndash;&gt;-->
+
+
+
+
+
+
+
+
+<!--<app-nav-bar-back></app-nav-bar-back>-->
+<!--<app-side-bar-back></app-side-bar-back>-->
+<!--<app-footer-back></app-footer-back>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">-->
+<!--  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>-->
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">-->
+<!--  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div style="display:flex; flex-direction:row; justify-content:center;">-->
+<!--  <div class="card" style="width: 15cm; height: 15cm; padding: 2rem; margin-right: 2rem;">-->
+<!--    <div class="card-header">-->
+<!--      <h5 class="card-title mb-0">Complaints Chart</h5>-->
+<!--      <label>Select year:</label>-->
+<!--&lt;!&ndash;      <select (change)="onChangeYear((<number>$event.target.valueOf())">&ndash;&gt;-->
+<!--&lt;!&ndash;        <option value="">Select</option>&ndash;&gt;-->
+<!--&lt;!&ndash;        <option *ngFor="let year of years" [value]="year">{{ year }}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      </select>&ndash;&gt;-->
+
+<!--      <canvas  style="width: 10cm; height: 10cm;justify-content: center; align-items: center; padding: 4rem; margin-right: 2rem;" id="chart2"></canvas>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="card" style="width: 25cm; height: 15cm; padding: 2rem;">-->
+<!--    <div class="card-header">-->
+<!--      <h5 class="card-title mb-0">Add New Complaint</h5>-->
+<!--    </div>-->
+<!--    <div class="card-body">-->
+<!--      <form #registerForm="ngForm" method="post" (ngSubmit)="onSubmit()">-->
+<!--        <div class="form-group mb-4">-->
+<!--          <label for="subjectc">Subject</label>-->
+<!--          <input type="text" class="form-control" id="subjectc" required [(ngModel)]="complaintData.subject"-->
+<!--                 name="subject">-->
+<!--        </div>-->
+<!--        <div class="form-group mb-4">-->
+<!--          <label for="content">Content</label>-->
+<!--          <textarea class="form-control" id="content" rows="5" required [(ngModel)]="complaintData.content"-->
+<!--                    name="content"></textarea>-->
+<!--        </div>-->
+<!--        <div class="form-group mb-0">-->
+<!--          <button type="submit" class="btn border border-danger w-100 rounded-pill bg-transparent text-dark">Add-->
+<!--            Complaint-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="card mt-4" style="width: 100%; height: 15cm;">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">Complaints List</h5>-->
+
+<!--    <form class="form-inline mb-4">-->
+<!--      <div class="form-group mr-2">-->
+<!--        <input type="search" id="search" value="" class="form-control" placeholder="Enter search term">-->
+<!--      </div>-->
+<!--      &lt;!&ndash;      <button type="submit" class="btn btn-primary btn-danger rounded-pill">Search</button>&ndash;&gt;-->
+<!--    </form>-->
+
+<!--    <div class="table-wrapper-scroll-y my-custom-scrollbar">-->
+<!--      <div class="table-responsive " id="main-container">-->
+<!--        <table id="tablecomplaints" class="table table-hover mt-4">-->
+<!--          <thead class="text-center">-->
+<!--          <tr>-->
+<!--            <th class="text-center align-middle">ID</th>-->
+<!--            <th class="text-center align-middle">Subject</th>-->
+<!--            <th class="text-center align-middle">Content</th>-->
+<!--            <th class="text-center align-middle">Date</th>-->
+<!--            <th class="text-center align-middle">Update Date</th>-->
+<!--            <th class="text-center align-middle">Status</th>-->
+<!--            <th class="text-center align-middle">Sent by</th>-->
+<!--            <th class="align-right">  Actions</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+
+<!--          <tbody>-->
+<!--          <tr *ngFor="let complaint of complaints; let i = index ">-->
+<!--            <td class="text-center align-middle">{{ complaint.idComplaint }}</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.subject }}</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.content.slice(0, 20) }}...</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.date }}</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.updatedate }}</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.status }}</td>-->
+<!--            <td class="text-center align-middle">{{ complaint.complaintPar }}</td>-->
+
+<!--            <td class="text-center text-center align-middle">-->
+<!--              <button type="button" class="btn bg-transparent" id="b2" (click)="openModal(complaint,'update')" style="outline: none; box-shadow: none;"> <span class="fa fa-edit text-dark"></span></button>-->
+<!--            </td>-->
+
+<!--            <td class="text-center text-center align-middle">-->
+<!--              <button class="btn bg-transparent" (click)="openModal(complaint,'delete')" style="outline: none; box-shadow: none;">-->
+<!--                <span class="fa fa-trash text-dark"></span>-->
+<!--              </button>-->
+<!--            </td>-->
+
+<!--            <td class="text-center text-center align-middle">-->
+<!--              <button class="btn bg-transparent" (click)="openModal(complaint,'show') " style="outline: none; box-shadow: none;">-->
+<!--                <span class="fa fa-info text-dark"></span>-->
+<!--              </button>-->
+<!--            </td>-->
+
+<!--          </tr>-->
+<!--          </tbody>-->
+
+<!--        </table>-->
+
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--  </div>-->
+
+<!--</div>-->
+
+
+<!--</body>-->
+
+<!--</html>-->
+
+
+
+<!--            <td>-->
+<!--                    <select class="form-control" id="status" name="status" [(ngModel)]="complaint.status">Action-->
+<!--                      <option value="Resolved">Resolved</option>-->
+<!--                      <option value="InProgress">InProgress</option>-->
+<!--                    </select>-->
+
+<!--            </td>-->
+<!--            <app-modal [data]="modalData" ></app-modal>-->

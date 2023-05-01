@@ -30,21 +30,24 @@
               "src/assets/FrontAssets/sass/now-ui-kit.scss",
               "src/assets/FrontAssets/css/demo.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-              "src/assets/BackAssets/css/style.css"
+              "src/assets/BackAssets/css/style.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
 
             ],
             "scripts": [
-              "./node_modules/rellax/rellax.min.js",
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/popper.js/dist/umd/popper.js",
-              "./node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
-              "./node_modules/arrive/src/arrive.js",
-              "./node_modules/moment/moment.js",
-              "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
-              "./node_modules/bootstrap-notify/bootstrap-notify.js",
-              "./node_modules/chartist/dist/index.js",
+              "node_modules/rellax/rellax.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
+              "node_modules/arrive/src/arrive.js",
+              "node_modules/moment/moment.js",
+              "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+              "node_modules/bootstrap-notify/bootstrap-notify.js",
+              "node_modules/chartist/dist/index.js",
               "src/assets/BackAssets/js/main.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -105,9 +108,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           }
         }
       }
