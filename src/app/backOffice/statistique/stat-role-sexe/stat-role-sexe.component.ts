@@ -21,7 +21,7 @@ export class StatRoleSexeComponent implements OnInit {
   chartLabels = ["Apple", "Microsoft", "Facebook", "Google"];
 
   chartTitle: ApexTitleSubtitle = {
-    text: 'Leading Companies',
+    text: 'number of inscription  by role and by sex',
     align: 'center'
   };
 

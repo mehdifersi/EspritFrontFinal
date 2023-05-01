@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         this.login.loginUser(data.token);
         this.router.navigateByUrl('/homeBack')
         this.login.getCurrentUser(this.loginData.email).subscribe(
-          (user:any)=>{
+          (user)=>{
             this.login.setUser(user);
              console.log(user);
 

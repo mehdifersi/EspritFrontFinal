@@ -44,7 +44,7 @@
               "./node_modules/bootstrap-notify/bootstrap-notify.js",
               "./node_modules/chartist/dist/index.js",
               "src/assets/BackAssets/js/main.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
             ]
           },
           "configurations": {
