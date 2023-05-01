@@ -34,6 +34,7 @@ import {NgbActiveModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 import { StatRoleAnneeComponent } from './backOffice/statistique/stat-role-annee/stat-role-annee.component';
 import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/stat-role-sexe.component';
 import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
+import { ApplicationComponent } from './frontOffice/application/application.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role
     UploadFileComponent,
     StatRoleAnneeComponent,
     StatRoleSexeComponent,
-    StatRoleNationalityComponent
+    StatRoleNationalityComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
