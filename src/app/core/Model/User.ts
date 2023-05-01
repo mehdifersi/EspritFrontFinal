@@ -25,3 +25,4 @@ export class User {
   niveauSuivant!: NiveauSuivant;
   numTel!: string;
 }
+

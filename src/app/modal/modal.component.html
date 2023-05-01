@@ -1,0 +1,238 @@
+
+
+
+<script>	$(document).ready(function(){
+  $('#action_menu_btn').click(function(){
+    $('.action_menu').toggle();
+  });
+});</script>
+
+
+
+<!--show details -->
+<div *ngIf="action === 'show'"  class="modal-content" style="position: absolute; top: -200px;" >
+  <button type="button" class="btn close float-end bg-transparent" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')" style="outline: none; box-shadow: none;font-size: 1.5rem;position: absolute; right: 20px;">
+    <span aria-hidden="true" class="text-dark">x</span>
+  </button>
+<div class="modal-header">
+  <h4 class="modal-title">{{ data.subject }}</h4>
+
+</div>
+<div class="modal-body ">
+  <div class="row mb-3">
+    <div class="col-3"><strong>Id:</strong></div>
+    <div class="col">{{ data.idComplaint }}</div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-3"><strong>Date:</strong></div>
+    <div class="col">{{ data.date }}</div>
+  </div>
+  <div class="row">
+    <div class="col-3"><strong>Content:</strong></div>
+    <div class="col">
+      <pre>{{ data.content }}</pre>
+    </div>
+  </div>
+</div>
+
+  <form class="p-5" #resolveForm="ngForm" method="post" (ngSubmit)="sendMail()">
+
+    <div class="form-group mb-4">
+      <label for="subject" class="fw-bold fs-6"> To:</label>
+      <br>
+      <br>
+      <input type="text" class="form-control" id="email" name="email"readonly [(ngModel)]="data.complaintPar.email">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="subject" class="fw-bold fs-6"> Subject:</label>
+      <br>
+      <br>
+      <input type="text" class="form-control" id="subject" name="subject" required [(ngModel)]="subject">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="body" class="fw-bold fs-6"> body:</label>
+      <br>
+      <br>
+      <textarea class="form-control" id="body" name="body" rows="5" required [(ngModel)]="body"></textarea>
+    </div>
+
+    <div class="form-group mb-0">
+      <button type="submit" class="btn border border-danger w-100 rounded-pill bg-transparent text-dark">Send
+      </button>
+    </div>
+
+  </form>
+
+  <div class="modal-footer">
+
+</div>
+</div>
+
+
+
+
+
+<!--update -->
+<div *ngIf="action === 'update'">
+  <button type="button" class="btn close float-end bg-transparent" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')" style="outline: none; box-shadow: none;font-size: 1.5rem;">
+    <span aria-hidden="true" class="text-dark">x</span>
+  </button>
+
+<br>
+
+</div>
+
+<!--delete-->
+<div *ngIf="action === 'delete'" class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure?</h4>
+  </div>
+  <div class="modal-body">
+    <p>Do you really want to delete these records? This process cannot be undone.</p>
+  </div>
+  <div class="modal-footer">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-danger w-100 rounded-pill" id="confirmDeleteButton" (click)="deleteComplaint()">Delete</button>
+        <button type="button" class="btn border border-danger w-100 rounded-pill  bg-transparent text-dark"  (click)="activeModal.dismiss('Close click')">Cancel</button>
+
+  </div>
+
+
+</div>
+</div>
+
+
+<!--add -->
+<div *ngIf="action === 'add'" class="modal-content">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Add New Complaint</h5>
+  </div>
+  <div class="card-body">
+    <form #registerForm="ngForm" method="post" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-4">
+        <label for="subjectc">Subject</label>
+        <input type="text" class="form-control" id="subjectc" required [(ngModel)]="complaintData.subject"
+               name="subject">
+      </div>
+      <div class="form-group mb-4">
+        <label for="contenttt">Content</label>
+        <textarea class="form-control" id="contenttt" rows="5" required [(ngModel)]="complaintData.content"
+                  name="content"></textarea>
+      </div>
+      <div class="form-group mb-0">
+        <button type="submit" class="btn border border-danger w-100 rounded-pill bg-transparent text-dark">Add
+          Complaint
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!--chat -->
+<div *ngIf="action === 'chat'" class="modal-content" style="position: absolute; top: 100px; right: -725px; width: 470px; height: 600px;">
+  <div class="card-header msg_head">
+    <div class="d-flex bd-highlight align-items-center">
+      <div class="img_cont">
+        <div class="rounded-circle" style="background-color: rgba(166, 10, 10, 1); position: absolute; top: 10px; right: 3px; height: 50px; width: 50px; display: flex; align-items: center; justify-content: center;">
+          <i class="fa fa-comments" style="color: white;"></i>
+        </div>
+        <span class="online_icon"></span>
+      </div>
+      <div class="user_info">
+        <span class="text-dark">Chat with Esprit Bot</span>
+      </div>
+      <button type="button" class="btn close ms-auto bg-transparent" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')" style="outline: none; box-shadow: none;font-size: 1.5rem;">
+        <span aria-hidden="true" class="text-dark">x</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body" id="chatbotModalBody">
+    <div class="card-body msg_card_body" style="height: 400px; overflow-y: scroll;">
+      <div *ngFor="let c of chat" class="d-flex justify-content-start mb-4">
+      <div class="card-body msg_card_body">
+                <div class="d-flex justify-content-end mb-4">
+                  <div class="msg_cotainer_send" [ngClass]="{'bg-transparent border-transparent': !message, 'bg-white border-black': message, 'text-dark': true}">
+                    {{c.message}}
+                  </div>
+                </div>
+        <div class="d-flex justify-content-start mb-4">
+
+          <div class="msg_cotainer" [ngClass]="{'bg-transparent': !response, 'rgba(166, 10, 10, 1)': response, 'text-white': true}">
+            {{c.response}}
+
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+      <div class="card-footer">
+        <div class="input-group" style="position: absolute; top: 450px;">
+          <div class="col-10">
+            <input name="" class="form-control border border-danger w-100 rounded-pill bg-transparent" placeholder="Type your message..." [(ngModel)]="message" (keyup.enter)="chat3()">
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn bg-transparent" (click)="chat3()" style="outline: none; box-shadow: none;font-size: 1.5rem;position: absolute; right: 27px;top:-15px;">
+              <i class="fas fa-paper-plane text-dark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+</div>
+
+
+<!--UserDetail-->
+
+<div *ngIf="action === 'userDetail'">
+  <button type="button" class="btn close float-end bg-transparent" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')" style="outline: none; box-shadow: none;font-size: 1.5rem;">
+    <span aria-hidden="true" class="text-dark">x</span>
+  </button>
+  <div class="modal-header">
+    <h4 class="modal-title">{{ data.complaintPar.firstname }}  {{data.complaintPar.lastname}}</h4>
+
+  </div>
+  <div class="modal-body ">
+    <div class="row mb-3">
+      <div class="col-3"><strong>Id:</strong></div>
+      <div class="col">{{ data.complaintPar.id }}</div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-3"><strong>Status:</strong></div>
+      <div class="col">{{ data.complaintPar.enabled ? 'Active' : 'Blocked' }}</div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-3"><strong>warnings:</strong></div>
+      <div class="col">{{ data.complaintPar.warnings}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3"><strong>email:</strong></div>
+      <div class="col">{{ data.complaintPar.email }} </div>
+    </div>
+  </div>
+</div>
+
+<!--      <input type="text" [(ngModel)]="message">-->
+<!--      <button (click)="chat()">Chat with Esprit Bot</button>-->
+
+<!--      <div class="card-body msg_card_body">-->
+<!--        <div class="d-flex justify-content-start mb-4">-->
+<!--          <div class="img_cont_msg">-->
+<!--            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">-->
+<!--          </div>-->
+<!--          <div class="msg_cotainer">-->
+<!--            {{response}}-->
+<!--            <span class="msg_time">8:40 AM, Today</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="d-flex justify-content-end mb-4">-->
+<!--          <div class="msg_cotainer_send">-->
+<!--            {{message}}-->
+<!--            <span class="msg_time_send">8:55 AM, Today</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->

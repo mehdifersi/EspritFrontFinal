@@ -1,3 +1,4 @@
 export class ChatBotRequest {
-   prompt!: string;
-   maxTokens!: number;}
+  message!:string;
+  response!:string;
+  time!:Date;}

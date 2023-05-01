@@ -133,5 +133,25 @@
       </div>
     </div>
   </div>
+
+<p>change placement </p>
+  <button type="button" class="btn btn-primary rounded-circle" id="chatbutton"data-bs-toggle="modal" (click)="openModal('chat')" style="position: fixed; bottom: 20px; right: 20px; z-index: 999; font-size: 24px;">
+    <i class="fa fa-comments"></i>
+  </button>
+
+  <div class="section section-contact-us text-center" id="complaint">
+    <div class="container">
+      <h2 class="title">Need to report an issue?</h2>
+      <p class="description">We're here to help </p>
+      <div class="row">
+          <button type="submit" class="btn border border-danger w-100 rounded-pill bg-transparent text-dark" (click)="openModal('add')" >Submit complaint
+          </button>
+      </div>
+    </div>
+  </div>
+
+
   <app-footer></app-footer>
 </div>
+
+
