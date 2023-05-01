@@ -68,6 +68,24 @@ export class ProfileComponent implements OnInit {
         console.error('Error generating badge:', error);
       }
     });}
+  generateCertification(id:number):void{
+    let fileName: string;
+    let a: HTMLAnchorElement;
+
+    this.userService.generateCertification(id).subscribe({
+      next: (blob: Blob) => {
+        fileName = blob.type.split('/')[1]+"_"+this.user?.firstname+"_"+this.user?.lastname;
+        a = document.createElement('a');
+        a.download = fileName;
+        a.href = window.URL.createObjectURL(blob);
+        a.click();
+        window.URL.revokeObjectURL(a.href);
+      },
+      error: (error: any) => {
+        console.error('Error generating certification:', error);
+      }
+    });
+  }
     openDialog(){
         const modelDiv =document.getElementById('uploadModel');
         if(modelDiv!=null){

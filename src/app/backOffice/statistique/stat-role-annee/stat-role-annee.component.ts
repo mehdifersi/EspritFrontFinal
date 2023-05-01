@@ -8,15 +8,42 @@ import {UserService} from "../../../services/user.service";
   styleUrls: ['./stat-role-annee.component.css']
 })
 export class StatRoleAnneeComponent implements OnInit {
+  student23: number[] = [];
+  teacher23: number[] = [];
+  admin23: number[] = [];
+
   constructor(private userService:UserService) {
+
   }
+
   ngOnInit(): void {
-    this.userService.statistique("student","annee_inscription")
+    this.userService.statistique("student","annee_inscription").subscribe(
+      (data:number[])=> {
+
+        for (const num of data) {
+          this.student23.push(num);
+        }
+        // this.student23=data
+      })
+    console.log(this.student23)
+    this.userService.statistique("teacher","annee_inscription").subscribe(
+      (data:number[])=>{
+
+        for (const num of data) {
+          this.teacher23.push(num);
+        }
+        // this.teacher23=data
+      })
+    this.userService.statistique("admin","annee_inscription").subscribe(
+      (data:number[])=>{
+        for (const num of data) {
+          this.admin23.push(num);
+        }
+        // this.admin23=data
+      })
   }
-  num!:number[]
 
-  chartSeries: ApexNonAxisChartSeries = [40, 32, 28, 55];
-
+  chartSeries: ApexNonAxisChartSeries = [this.student23[0], this.teacher23[0], this.admin23[0]];
   chartDetails: ApexChart = {
     type: 'pie',
     toolbar: {
@@ -24,10 +51,10 @@ export class StatRoleAnneeComponent implements OnInit {
     }
   };
 
-  chartLabels = ["Apple", "Microsoft", "Facebook", "Google"];
+  chartLabels = ["Student", "Teacher", "Agent administrative"];
 
   chartTitle: ApexTitleSubtitle = {
-    text: 'Leading Companies',
+    text: 'Number of inscription In 2023 By role ',
     align: 'center'
   };
 
