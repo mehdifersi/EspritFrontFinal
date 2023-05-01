@@ -16,6 +16,7 @@ import {AddOfferComponent} from "./backOffice/offers/add-offer/add-offer.compone
 import {ContactComponent} from "./backOffice/contact/contact.component";
 import {StatistiqueComponent} from "./backOffice/statistique/statistique.component";
 import {GetOffersComponent} from "./backOffice/offers/get-offers/get-offers.component";
+import {UpdateOffersComponent} from "./backOffice/offers/update-offers/update-offers.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
@@ -31,7 +32,8 @@ const routes: Routes = [
       {path:'add_offer',component:AddOfferComponent},
       {path:'contact',component:ContactComponent},
       {path:'stat',component:StatistiqueComponent},
-      {path:'offers',component:GetOffersComponent}
+      {path:'offers',component:GetOffersComponent},
+      {path:'updateoffer',component:UpdateOffersComponent}
     ]},
   {path:'**',component:NotFoundComponent}
 ]

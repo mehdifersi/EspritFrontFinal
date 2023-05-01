@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import * as Rellax from 'rellax';
+import {Offre} from "../../core/Model/Offre";
+import {OffreService} from "../../services/offre.service";
+import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -7,11 +11,17 @@ import * as Rellax from 'rellax';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements  OnInit {
+  listOffers: Offre[] = [];
   data : Date = new Date();
   focus: any;
   focus1: any;
 
-  constructor() { }
+  constructor(private offreService: OffreService,private router: Router,private http:HttpClient) {
+    this.offreService.getOffres().subscribe((offers) => {
+      console.log(offers); // log the entire array of offers to the console
+      this.listOffers = offers;
+    });
+  }
 
   ngOnInit() {
     var rellaxHeader = new Rellax('.rellax-header');

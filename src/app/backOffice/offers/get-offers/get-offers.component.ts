@@ -3,6 +3,7 @@ import {Offre} from "../../../core/Model/Offre";
 import {OffreService} from "../../../services/offre.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {SharedService } from "../../../services/sharedservices.service"
 import {Observable} from "rxjs";
 import Swal from 'sweetalert2';
 
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2';
 export class GetOffersComponent implements OnInit{
   listOffers: Offre[] = [];
 
-  constructor(private offreService: OffreService,private router: Router,private http:HttpClient) {
+  constructor(private sharedServices: SharedService,private offreService: OffreService,private router: Router,private http:HttpClient) {
     this.offreService.getOffres().subscribe((offers) => {
       console.log(offers); // log the entire array of offers to the console
       this.listOffers = offers;
@@ -52,4 +53,17 @@ export class GetOffersComponent implements OnInit{
       }
     });
   }
+
+  getoffre(idOffre: number) {
+    this.offreService.getOffre(idOffre).subscribe(
+      (offre) => {
+        this.sharedServices.selectedOffer = offre;
+        this.router.navigateByUrl("/homeBack/updateoffer")
+      },
+      (error) => {
+        console.log('Error while getting offre: ' + error);
+      }
+    );
+  }
+
 }

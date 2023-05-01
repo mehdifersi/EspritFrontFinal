@@ -54,13 +54,14 @@
       </th>
     </tr>
 
-
     <p class="card-text" >
     <button (click)="deletation(offre.idOffre)"  class="btn btn-danger rounded-pill">Delete</button></p>
-    <button class="btn btn-info rounded-pill">Update offer</button>
+    <button (click)="getoffre(offre.idOffre)" class="btn btn-info rounded-pill">Update offer</button>
   </table>
 </div>
   </table>
+  <a href="/homeBack/add_offer" class="btn btn-success btn-lg">Add Another Offer</a>
+
 </main>
 <!-- End #main -->
 

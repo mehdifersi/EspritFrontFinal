@@ -105,33 +105,36 @@
     <div class="container">
       <h2 class="title">Want to work with us?</h2>
       <p class="description">Here are the Offres currently available.</p>
-      <div class="row">
-        <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-          <div class="input-group input-lg" [ngClass]="{'input-group-focus':focus===true}">
-            <div class="input-group-prepend" >
-                      <span class="input-group-text">
-                          <i class="now-ui-icons users_circle-08"></i>
-                      </span>
-            </div>
-            <input type="text" class="form-control" placeholder="Left Font Awesome Icon" (focus)="focus=true" (blur)="focus=false">
-          </div>
-          <div class="input-group input-lg" [ngClass]="{'input-group-focus':focus1===true}">
-            <div class="input-group-prepend" >
-                      <span class="input-group-text">
-                            <i class="now-ui-icons ui-1_email-85"></i>
-                      </span>
-            </div>
-            <input type="text" class="form-control" placeholder="Left Font Awesome Icon" (focus)="focus1=true" (blur)="focus1=false">
-          </div>
-          <div class="textarea-container">
-            <textarea class="form-control" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
-          </div>
-          <div class="send-button">
-            <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
-          </div>
-        </div>
-      </div>
     </div>
+    <table>
+      <th *ngFor="let offre of listOffers">
+        <div class="card" *ngIf="offre">
+          <img class="card-img-top" src="assets/BackAssets/img/{{offre.type}}.jpg">
+          <table class="card-body">
+            <tr>
+              <th>
+                <h5 class="card-title">{{offre.title}}</h5>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h6 class="card-subtitle mb-2 text-muted">Job Description</h6>
+                <p class="card-text">{{offre.description}}</p>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <h6 class="card-subtitle mb-2 text-muted">Job Capacity</h6>
+                <p class="card-text">{{offre.capacity}}</p>
+              </th>
+            </tr>
+
+
+            <p class="card-text" >
+            <button class="btn btn-success rounded-pill">Apply for Position</button>
+          </table>
+        </div>
+    </table>
   </div>
   <app-footer></app-footer>
 </div>
