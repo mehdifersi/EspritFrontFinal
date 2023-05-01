@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Offre } from '../core/Model/Offre';
 import baseUrl from './helpers.service';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,13 @@ import baseUrl from './helpers.service';
 export class OffreService {
 
   constructor(private http:HttpClient) { }
-  getOffres() {
+  getOffres():Observable<Offre[]> {
     return this.http.get<Offre[]>(`${baseUrl}/offre/getAll`);
   }
 
-  postOffre(offre: any) {
+  postOffre(offre: Offre) {
     console.log(offre)
-    return this.http.post<any>(`${baseUrl}/offre/add`,offre);
+    return this.http.post(`${baseUrl}/offre/add`,offre);
   }
 
   updateOffre(offre: Offre) {

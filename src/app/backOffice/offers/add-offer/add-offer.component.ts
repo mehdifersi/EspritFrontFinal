@@ -4,6 +4,7 @@ import {OffreService} from "../../../services/offre.service";
 import {Type} from "../../../core/Model/Type";
 import {Offre} from "../../../core/Model/Offre";
 import {HttpClient} from "@angular/common/http";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-add-offer',
@@ -12,6 +13,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AddOfferComponent {
   offer: Offre = {
+    idOffre:0,
     title: "",
     type: "" as Type,
     description: "",
@@ -59,6 +61,11 @@ export class AddOfferComponent {
   formSubmit() {
     this.offreService.postOffre(this.offer).subscribe(
       (data:any)=> {
+        Swal.fire("The Job Offer was added successfully").then((result)=>{
+          if (result.isConfirmed){
+            this.router.navigate(['/homeBack/offers']);
+          }})
+
         console.log("succes");
         console.log(data);
       })
