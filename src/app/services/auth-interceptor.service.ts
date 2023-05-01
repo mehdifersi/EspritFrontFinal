@@ -16,6 +16,7 @@ export class AuthInterceptorService implements HttpInterceptor{
     //throw new Error("Method not implemented.");
 
     let authReq = req;
+    // console.log(this.login.getToken())
     const token = this.login.getToken();
     // console.log("inside interceptor");
 

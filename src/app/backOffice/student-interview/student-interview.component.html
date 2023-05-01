@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<app-nav-bar-back></app-nav-bar-back>
+<!-- ======= Sidebar ======= -->
+<app-side-bar-back-student></app-side-bar-back-student>
+<main id="main" class="main">
+  <h4>Your interview is due to </h4>
+
+  <form>
+    <div class="row mb-3">
+      <label for="dateInterview" class="col-sm-2 col-form-label">Interview Date</label>
+      <div class="col-sm-10">
+        <input type="date" id="dateInterview"  name="dateInterview" class="form-control" required [(ngModel)]="interview.dateInterview">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="heureInterview" class="col-sm-2 col-form-label"> Interview Time</label>
+      <div class="col-sm-10">
+        <input type="time" class="form-control" id="heureInterview" name="heureInterview" required [(ngModel)]="interview.heureInterview">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-10">
+        <button type="button" class="btn btn-secondary" (click)="return(interview.idInterview)" style="float: right;">Return</button>
+        <button type="submit" class="btn btn-primary" (click)="updateInterview(interview.idInterview,interview)" style="float: right;">Update Interview</button>
+        <button type="submit" class="btn btn-primary" (click)="addInterview(idStudent,interview)" >Add Interview</button>
+
+      </div>
+    </div>
+
+  </form>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer-back></app-footer-back>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+</body>
+
+</html>
+
+
+

@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
   }
-  ngOnDestroy(){
-    var body = document.getElementsByTagName('body')[0];
-    body.classList.remove('login-page');
-
-    var navbar = document.getElementsByTagName('nav')[0];
-    navbar.classList.remove('navbar-transparent');
-  }
+  // ngOnDestroy(){
+  //   var body = document.getElementsByTagName('body')[0];
+  //   body.classList.remove('login-page');
+  //
+  //   var navbar = document.getElementsByTagName('nav')[0];
+  //   navbar.classList.remove('navbar-transparent');
+  // }
 
 
 
@@ -68,20 +68,19 @@ export class LoginComponent implements OnInit {
       (data:any)=>{
         console.log("succes");
         console.log(data);
-
         this.login.loginUser(data.token);
-
-        this.login.getCurrentUser(data.token).subscribe(
-          (user:any)=>{
+        this.router.navigateByUrl('/homeBack')
+        this.login.getCurrentUser(this.loginData.email).subscribe(
+          (user)=>{
             this.login.setUser(user);
-            // console.log(user);
+             console.log(user);
 
-            if(this.login.getUserRole()=='STUDENT'){
+            if(user.role=='STUDENT'){
 
-              Swal.fire('Bienvenue',this.login.getUser().username, 'success').then((result)=>{
+              Swal.fire('Bienvenue',this.login.getUser()?.firstname, 'success').then((result)=>{
                 if(result.isConfirmed){
 
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/profile']);
 
                   // window.location.href='/';
                 }
