@@ -71,16 +71,16 @@ export class LoginComponent implements OnInit {
         this.login.loginUser(data.token);
         this.router.navigateByUrl('/homeBack')
         this.login.getCurrentUser(this.loginData.email).subscribe(
-          (user:any)=>{
+          (user)=>{
             this.login.setUser(user);
              console.log(user);
 
-            if(this.login.getUserRole()=='STUDENT'){
+            if(user.role=='STUDENT'){
 
               Swal.fire('Bienvenue',this.login.getUser()?.firstname, 'success').then((result)=>{
                 if(result.isConfirmed){
 
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/profile']);
 
                   // window.location.href='/';
                 }

@@ -23,6 +23,18 @@ import { StudentDashboardComponent } from './backOffice/student-dashboard/studen
 import { StudentInterviewComponent } from './backOffice/student-interview/student-interview.component';
 import { StudentProfileComponent } from './backOffice/student-profile/student-profile.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { ContactComponent } from './backOffice/contact/contact.component';
+import { StatistiqueComponent } from './backOffice/statistique/statistique.component';
+import {UploaderModule} from "angular-uploader";
+import {NgApexchartsModule} from "ng-apexcharts";
+import {MatDialogModule} from "@angular/material/dialog";
+import { UploadFileComponent } from './backOffice/upload-file/upload-file.component';
+import {MatButtonModule} from "@angular/material/button";
+import {NgbActiveModal, NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
+import { StatRoleAnneeComponent } from './backOffice/statistique/stat-role-annee/stat-role-annee.component';
+import { StatRoleSexeComponent } from './backOffice/statistique/stat-role-sexe/stat-role-sexe.component';
+import { StatRoleNationalityComponent } from './backOffice/statistique/stat-role-nationality/stat-role-nationality.component';
+
 import { SideBarBackStudentComponent } from './backOffice/side-bar-back-student/side-bar-back-student.component';
 import { TeacherInterviewsComponent } from './backOffice/teacher-interviews/teacher-interviews.component';
 import { SideBarBackTeacherComponent } from './backOffice/side-bar-back-teacher/side-bar-back-teacher.component';
@@ -46,6 +58,24 @@ import { DatePipe } from '@angular/common';
     ProfileComponent,
     NotFoundComponent,
     ListUserComponent,
+    ContactComponent,
+    StatistiqueComponent,
+    UploadFileComponent,
+    StatRoleAnneeComponent,
+    StatRoleSexeComponent,
+    StatRoleNationalityComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgxPageScrollModule,
+    FormsModule,
+    HttpClientModule,
+    UploaderModule,
+    NgApexchartsModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgbModalModule
     InterviewDetailsAdminComponent,
     AdminDashboardComponent,
     StudentDashboardComponent,
@@ -57,13 +87,6 @@ import { DatePipe } from '@angular/common';
     SideBarBackTeacherComponent,
     TeacherDashboardComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgxPageScrollModule,
-        FormsModule,
-        HttpClientModule
-    ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass :AuthInterceptorService,

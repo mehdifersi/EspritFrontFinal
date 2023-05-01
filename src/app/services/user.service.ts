@@ -20,7 +20,8 @@ export class UserService {
   postUser(user:User){
     return this.http.post<User>(`${baseUrl}/user/add`,user)
   }
-  updateUser(user:User){
+
+  updateUser(user: User | null){
     return this.http.put<User>(`${baseUrl}/user/update`, user);
 
   }
@@ -31,9 +32,20 @@ export class UserService {
     return  this.http.get<User>(`${baseUrl}/user/`+ id);
   }
   statistique(role:any,cretetria:any){
-    return  this.http.get<User>(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
+    return  this.http.get<number[]>(`${baseUrl}/user/statistique/`+role+`/`+cretetria);
   }
 
+  generateBadge(id: number){
+    return  this.http.get(`${baseUrl}/user/badge/generate/`+id, { responseType: 'blob' });
+  }
+  generateCertification(id: number){
+    return  this.http.get(`${baseUrl}/user/certificate/generate/`+id, { responseType: 'blob' });
+  }
+  uploadUser(formData:FormData){
+    // const formData = new FormData();
+    // formData.append('file', file, file.name);
+    return this.http.post(`${baseUrl}/user/upload-users-data`, formData)
+  }
   updateUser3(id:number,user:User){
     return this.http.put<User>(`${baseUrl}/user/updateUser/`+id,id);
   }

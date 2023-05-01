@@ -52,15 +52,12 @@ export class LoginServiceService {
   public logout(){
 
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('User');
     return true;
-
 
   }
 
   public getToken(){
-
-
     return localStorage.getItem('token');
 
   }
@@ -101,7 +98,7 @@ export class LoginServiceService {
 
   public getCurrentUser(email:any){
 
-    return this.http.get(`${baseUrl}/api/v1/auth/getUserByEmail/`+email);
+    return this.http.get<User>(`${baseUrl}/api/v1/auth/getUserByEmail/`+email);
 
   }
 
