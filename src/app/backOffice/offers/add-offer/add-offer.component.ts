@@ -25,6 +25,22 @@ export class AddOfferComponent {
   ngOnInit() {
   }
   formSubmit() {
+    if(this.offer.title.trim() == '' || this.offer.title == null){
+      Swal.fire('Required Field !!', 'title is a required field', 'error');
+      return;
+    }
+    if(this.offer.description.trim() == '' || this.offer.description == null){
+      Swal.fire('Required Field !!', 'description is a required field', 'error');
+      return;
+    }
+    if(this.offer.type.trim() == '' || this.offer.type == null){
+      Swal.fire('Required Field !!', 'Please Select a type', 'error');
+      return;
+    }
+    if(this.offer.capacity==0 || this.offer.capacity <0){
+      Swal.fire('Required Field !!', 'Capacity shouldn t be less or equal than zero', 'error');
+      return;
+    }
     this.offreService.postOffre(this.offer).subscribe(
       (data:any)=> {
         Swal.fire("The Job Offer was added successfully").then((result)=>{

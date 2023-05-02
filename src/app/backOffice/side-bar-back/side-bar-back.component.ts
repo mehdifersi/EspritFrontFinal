@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {User} from "../../core/Model/User";
+import {LoginServiceService} from "../../services/login-service.service";
+import {Role} from "../../core/Model/Role";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -27,12 +30,15 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./side-bar-back.component.css']
 })
 export class SideBarBackComponent implements OnInit {
+  user!:User | null
   menuItems?: any[];
 
-  constructor() { }
+  constructor(private login:LoginServiceService) {
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.user=this.login.getUser()
   }
   isMobileMenu() {
     if ($(window).width() > 991) {
@@ -40,4 +46,6 @@ export class SideBarBackComponent implements OnInit {
     }
     return true;
   };
+
+  protected readonly Role = Role;
 }

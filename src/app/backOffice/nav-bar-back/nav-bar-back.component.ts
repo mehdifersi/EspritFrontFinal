@@ -16,7 +16,6 @@ export class NavBarBackComponent implements OnInit{
 
   ngOnInit(): void {
     this.user=this.login.getUser()
-
   }
   logout(){
     this.login.logout()
