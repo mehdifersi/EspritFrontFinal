@@ -18,7 +18,6 @@ export class ApplicationComponent implements OnInit {
   focus: any;
   focus1: any;
 ApplicationData:CondidatOffre={
-  idOffre:0,
   firstName:'',
   lastName:'',
   email:'',
@@ -52,7 +51,7 @@ ApplicationData:CondidatOffre={
       (data:any)=>{
         Swal.fire("The Job Offer was updated successfully").then((result)=>{
           if (result.isConfirmed){
-            this.router.navigate(['/homeBack/offers']);
+            this.router.navigate(['/home']);
           }})
 
         console.log("succes");

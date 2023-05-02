@@ -1,5 +1,4 @@
 export class CondidatOffre {
-  idOffre!: number;
   firstName!: string;
   lastName!: string;
   email!: string;
